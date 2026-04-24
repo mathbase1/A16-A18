@@ -1,1 +1,1656 @@
-THIS PAGE IS WORKING OK
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GCSE Maths (Foundation) — Algebra Topic Preview (A16–A18)</title>
+<style>
+:root{
+  --ink:#0f172a; --muted:#6b7280; --accent:#2563eb; --bg:#ffffff; --border:#e5e7eb;
+  --green:#16a34a; --orange:#f59e0b; --red:#dc2626;
+}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font:19px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+}
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--border)}
+main{max-width:1040px;margin:1.2rem auto 4rem;padding:0 1rem}
+.bar{display:flex;gap:.65rem;align-items:center;flex-wrap:wrap;padding:.75rem .9rem}
+.bar .group{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.bar label{font-weight:900;color:#111827;font-size:1rem}
+select, input[type="text"], input[type="number"]{
+  padding:.55rem .65rem;border:1px solid var(--border);border-radius:.6rem;min-width:160px;
+  background:#fff;color:var(--ink);font-size:1rem
+}
+input[type="text"], input[type="number"]{min-width:180px}
+.primary{
+  background:var(--accent);color:#fff;border:1px solid var(--accent);
+  border-radius:.65rem;padding:.6rem 1.05rem;cursor:pointer;font-weight:900;font-size:1rem
+}
+.ghost{
+  background:#fff;color:var(--ink);border:1px solid var(--border);
+  border-radius:.65rem;padding:.6rem 1.05rem;cursor:pointer;font-weight:900;font-size:1rem
+}
+.spacer{flex:1}
+.actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.qpanel{
+  border:1px solid var(--border);border-radius:1rem;overflow:hidden;margin-top:1rem;
+  box-shadow:0 1px 0 rgba(0,0,0,.03)
+}
+.qhead{
+  padding:1rem 1.05rem;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,#fbfdff,#f8fafc);
+  display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap
+}
+.qhead h3{margin:.1rem 0;font-size:1.2rem}
+.qbody{padding:1.1rem 1.05rem}
+.badge{display:inline-block;margin-left:.55rem;padding:.08rem .5rem;border:1px solid var(--border);
+  border-radius:8px;background:#eef2ff;font-size:.95rem}
+.paper-tag{font-weight:900;text-transform:uppercase;letter-spacing:.02em;font-size:.95rem}
+.paper-tag.nc{color:#15803d}.paper-tag.calc{color:#1d4ed8}
+.item{padding:.95rem .1rem;border-bottom:1px dashed rgba(229,231,235,.9)}
+.item:last-child{border-bottom:none}
+.parttop{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-bottom:.45rem}
+.partlabel{font-weight:900;font-size:1.05rem}.endmark{font-weight:900;color:#334155}
+.itemmain{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 1.35rem;align-items:center}
+.answercol{display:flex;justify-content:flex-end;align-items:center;min-width:260px}.qtext{min-width:280px}
+.formula, .math-inline math, .mathline math, .feedback math, .partfb math, .inputlabel math{font-size:1.08em}
+.mathline{display:block;margin:.35rem 0 .25rem 0}.mathline math{display:block}.textline{display:block;margin:.12rem 0}
+.answerrow{margin-top:0}.exprinput{min-width:280px}.stackinput{display:grid;gap:.55rem;min-width:320px;justify-items:end}
+.stackinput .row{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.solutionboxes{display:flex;gap:.65rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}.solutionboxes.one{justify-content:flex-end}
+.solutionbox{display:inline-flex;gap:.4rem;align-items:center}input.solutioninput{min-width:96px;width:110px}
+.reveal-solutions-inline{display:inline-flex;gap:.75rem;align-items:center;flex-wrap:wrap}.inputlabel{display:inline-flex;align-items:center;font-weight:900}
+.feedback{margin-top:1rem;border:1px solid var(--border);border-radius:.75rem;padding:.85rem 1rem;background:#f8fafc}
+.feedback.good{background:#ecfdf5;border-color:rgba(22,163,74,.22);color:#065f46}.feedback.bad{background:#fef2f2;border-color:rgba(220,38,38,.22);color:#7f1d1d}.feedback.partial{background:#fffbeb;border-color:rgba(245,158,11,.28);color:#92400e}
+.partfb{margin-top:.65rem;border:1px solid var(--border);border-radius:.75rem;padding:.65rem .8rem;background:#f8fafc;font-size:.96rem;display:none}
+.partfb.good{background:#ecfdf5;border-color:rgba(22,163,74,.22);color:#065f46;display:block}.partfb.bad{background:#fef2f2;border-color:rgba(220,38,38,.22);color:#7f1d1d;display:block}.partfb.partial{background:#fffbeb;border-color:rgba(245,158,11,.28);color:#92400e;display:block}
+.ok{outline:2px solid rgba(22,163,74,.35); border-color:rgba(22,163,74,.55)!important}.bad{outline:2px solid rgba(220,38,38,.28); border-color:rgba(220,38,38,.55)!important}.partial-input{outline:2px solid rgba(245,158,11,.28); border-color:rgba(245,158,11,.55)!important}
+.smallmuted{color:var(--muted);font-size:.95rem}
+.qbody.graph-layout{display:grid;grid-template-columns:minmax(320px,390px) 1fr;gap:1.1rem 1.35rem;align-items:start}
+.graphpanel{border:1px solid var(--border);border-radius:1rem;background:linear-gradient(180deg,#ffffff,#f8fafc);padding:.55rem .6rem;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.graphpanel svg{display:block;width:100%;height:auto}.graphnote{color:var(--muted);font-size:.95rem;margin-top:.35rem}.qintro{margin:.1rem 0 .25rem 0}
+.svg-label{font-size:11px;fill:#374151}.svg-axis{stroke:#111827;stroke-width:1.5}.svg-grid{stroke:#e5e7eb;stroke-width:1}.svg-curve{stroke:#2563eb;stroke-width:2.4;fill:none}.svg-frame{stroke:#9ca3af;stroke-width:1;fill:white}.svg-tick{stroke:#374151;stroke-width:1}
+.graph-layout .itemmain{grid-template-columns:minmax(0,1fr);gap:.42rem;align-items:start}
+.graph-layout .answercol{justify-content:flex-start;align-items:flex-start;min-width:0;margin-top:.34rem;padding-top:.1rem}
+.graph-layout .solutionboxes{justify-content:flex-start;align-items:flex-start;flex-direction:column;gap:.45rem}
+.graph-layout .solutionboxes.one{align-items:flex-start}.graph-layout input.solutioninput{width:116px}
+.pirow{display:inline-flex;gap:.5rem;align-items:center;flex-wrap:wrap}.pirow input{min-width:170px}.symbtn,.ansbtn{background:#fff;color:var(--ink);border:1px solid var(--border);border-radius:.55rem;padding:.45rem .62rem;cursor:pointer;font-weight:900;font-size:1rem;line-height:1}
+.exprwrap{display:flex;gap:.45rem;align-items:flex-start;flex-wrap:wrap;justify-content:flex-end}.exprtools{display:inline-flex;gap:.35rem;align-items:center;flex-wrap:wrap}.richinput{min-width:280px;min-height:42px;border:1px solid var(--border);border-radius:.6rem;background:#fff;padding:.45rem .58rem;line-height:1.45;font-size:1rem;outline:none}.richinput:empty:before{content:attr(data-placeholder);color:#9ca3af}.richinput:focus{border-color:rgba(37,99,235,.55);box-shadow:0 0 0 2px rgba(37,99,235,.12)}
+.ansbtn-frac{display:inline-grid;grid-template-rows:auto 1px auto;align-items:center;justify-items:center;min-width:24px}.ansbtn-frac .slot{width:18px;height:7px;border:1px solid #94a3b8;border-radius:3px}.ansbtn-frac .fracline{width:24px;border-top:2px solid #0f172a}.ansbtn-div{font-size:1.2rem}.frac-node{display:inline-grid;grid-template-rows:auto 2px auto;vertical-align:middle;align-items:center;justify-items:center;margin:0 .18rem}.frac-bar{width:100%;min-width:40px;border-top:2px solid #0f172a}.frac-input{width:58px;min-width:38px!important;border:1px solid #cbd5e1;border-radius:.35rem;padding:.12rem .2rem;text-align:center;font-size:.95rem;background:#fff}
+@media (max-width:860px){.qbody.graph-layout{grid-template-columns:1fr}}
+@media (max-width:760px){.itemmain{grid-template-columns:1fr;align-items:start}.answercol{justify-content:flex-start;min-width:0}.exprinput,.stackinput,.richinput{min-width:100%}.exprwrap{justify-content:flex-start;width:100%}.stackinput{justify-items:start}.stackinput .row,.solutionboxes{justify-content:flex-start}.qtext{min-width:220px}}
+
+/* USER_PATCH_A16_A18_VISUAL_FIX_START */
+main{max-width:1120px}
+.qbody.graph-layout{grid-template-columns:minmax(380px,470px) 1fr}
+.graph-layout .solutionboxes{
+  justify-content:flex-start;
+  align-items:center;
+  flex-direction:row;
+  gap:.6rem .75rem;
+}
+.graph-layout .solutionboxes.one{align-items:center}
+.graph-layout .answercol{margin-top:.28rem}
+.ansbtn{
+  width:36px;
+  height:36px;
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.ansbtn .ansbtn-div{font-size:1.04rem;line-height:1}
+.ansbtn .ansbtn-frac{
+  display:inline-grid;
+  grid-template-rows:auto 1px auto;
+  align-items:center;
+  justify-items:center;
+  gap:1px;
+  width:14px;
+  line-height:1;
+  min-width:0;
+}
+.ansbtn .ansbtn-frac .slot{
+  width:7px;
+  height:4px;
+  border:1px solid currentColor;
+  border-radius:1px;
+  box-sizing:border-box;
+  opacity:.82;
+}
+.ansbtn .ansbtn-frac .fracline{
+  width:100%;
+  height:1px;
+  background:currentColor;
+  border:0;
+  border-radius:999px;
+  opacity:.92;
+}
+.ansbtn-pow{font-weight:900;line-height:1}
+.ansbtn-pow sup{font-size:.65em;line-height:0}
+.frac-node{
+  display:inline-grid;
+  grid-template-rows:auto 1px auto;
+  align-items:center;
+  justify-items:center;
+  gap:0;
+  margin:0 .04em;
+  padding:0;
+  vertical-align:middle;
+  line-height:1;
+}
+.frac-bar{
+  display:block;
+  width:100%;
+  min-width:.62em;
+  height:1px;
+  background:currentColor;
+  border:0;
+  border-radius:999px;
+}
+.frac-field{
+  display:block!important;
+  min-width:0!important;
+  width:.52em;
+  max-width:6em;
+  text-align:center;
+  border:0!important;
+  border-bottom:1px solid transparent!important;
+  border-radius:0!important;
+  padding:0 .02em!important;
+  margin:0!important;
+  min-height:0!important;
+  height:1.02em!important;
+  font:inherit!important;
+  font-size:.72em!important;
+  line-height:1!important;
+  background:transparent!important;
+  color:inherit!important;
+  box-sizing:content-box!important;
+  outline:none!important;
+  box-shadow:none!important;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:textfield;
+}
+.frac-field[data-empty="1"]{border-bottom-color:rgba(148,163,184,.34)!important}
+.frac-field:focus{border-bottom-color:rgba(37,99,235,.55)!important}
+.frac-field::-webkit-outer-spin-button,
+.frac-field::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.pow-node{
+  display:inline-flex;
+  align-items:flex-start;
+  vertical-align:super;
+  margin:0 .04em;
+  line-height:1;
+}
+.pow-field{
+  display:inline-block!important;
+  min-width:0!important;
+  width:1.25em;
+  max-width:4.5em;
+  text-align:center;
+  border:0!important;
+  border-bottom:1px solid rgba(148,163,184,.34)!important;
+  border-radius:0!important;
+  padding:0 .02em!important;
+  margin:0!important;
+  height:1.05em!important;
+  min-height:0!important;
+  font:inherit!important;
+  font-size:.68em!important;
+  line-height:1!important;
+  background:transparent!important;
+  color:inherit!important;
+  outline:none!important;
+  box-shadow:none!important;
+}
+.pow-field:focus{border-bottom-color:rgba(37,99,235,.55)!important}
+@media (max-width:900px){.qbody.graph-layout{grid-template-columns:1fr}}
+/* USER_PATCH_A16_A18_VISUAL_FIX_END */
+
+
+/* USER_PATCH_A18_NESTED_ROOTS_FIX_START */
+.ansbtn-root{font-weight:900;line-height:1;min-width:36px}
+.ansbtn-root .root-icon{display:inline-flex;align-items:center;gap:1px;font-size:1.05rem;line-height:1}
+.ansbtn-root .root-index{font-size:.58em;align-self:flex-start;margin-right:-.08em;margin-top:.02em}
+.ansbtn-root .root-radicand{display:inline-block;min-width:.82em;border-top:1.5px solid currentColor;padding-top:.04em}
+.root-node{
+  display:inline-flex;
+  align-items:stretch;
+  vertical-align:middle;
+  margin:0 .06em;
+  line-height:1;
+  white-space:nowrap;
+  position:relative;
+}
+.root-node .root-index{
+  position:absolute;
+  left:-.16em;
+  top:.02em;
+  font-size:.56em;
+  line-height:1;
+  font-weight:600;
+  z-index:2;
+  pointer-events:none;
+}
+.root-node .root-symbol{
+  display:inline-flex;
+  align-self:stretch;
+  width:.92em;
+  min-height:1.48em;
+  margin-right:-.03em;
+  color:currentColor;
+  pointer-events:none;
+  flex:0 0 auto;
+}
+.root-node .root-symbol svg{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:1.48em;
+  overflow:visible;
+}
+.root-node .root-symbol path{
+  stroke:currentColor;
+  stroke-width:1.45;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+.root-radicand-editor{
+  display:inline-block;
+  min-width:1.18em;
+  max-width:16em;
+  min-height:1.36em;
+  border-top:1.45px solid currentColor;
+  border-bottom:1px solid rgba(148,163,184,.34);
+  padding:.13em .14em .05em .12em;
+  margin:0;
+  line-height:1.15;
+  vertical-align:top;
+  outline:none;
+  white-space:nowrap;
+  overflow-x:auto;
+  overflow-y:visible;
+  box-sizing:border-box;
+  cursor:text;
+}
+.root-radicand-editor:focus{border-bottom-color:rgba(37,99,235,.55)}
+.root-radicand-editor[data-empty="1"]::before{
+  content:"";
+  display:inline-block;
+  width:.5em;
+  height:.9em;
+  vertical-align:middle;
+}
+.root-node:has(.root-radicand-editor .frac-node) .root-symbol,
+.root-node:has(.root-radicand-editor .root-node) .root-symbol{
+  min-height:2.02em;
+}
+.root-node:has(.root-radicand-editor .frac-node) .root-symbol svg,
+.root-node:has(.root-radicand-editor .root-node) .root-symbol svg{
+  min-height:2.02em;
+}
+.root-node:has(.root-radicand-editor .frac-node) .root-radicand-editor,
+.root-node:has(.root-radicand-editor .root-node) .root-radicand-editor{
+  padding-top:.16em;
+  padding-bottom:.07em;
+}
+.root-node .frac-node{
+  margin:0 .04em;
+  vertical-align:middle;
+}
+.root-node .pow-node{vertical-align:super}
+.root-node .root-node{margin:0 .04em}
+.root-field{
+  display:inline-block!important;
+  min-width:0!important;
+  width:2.2em;
+  max-width:8em;
+  text-align:center;
+  border:0!important;
+  border-top:1.5px solid currentColor!important;
+  border-bottom:1px solid rgba(148,163,184,.34)!important;
+  border-radius:0!important;
+  padding:.08em .08em 0 .08em!important;
+  margin:0!important;
+  height:1.22em!important;
+  min-height:0!important;
+  font:inherit!important;
+  font-size:.86em!important;
+  line-height:1!important;
+  background:transparent!important;
+  color:inherit!important;
+  outline:none!important;
+  box-shadow:none!important;
+}
+.root-field:focus{border-bottom-color:rgba(37,99,235,.55)!important}
+/* USER_PATCH_A18_NESTED_ROOTS_FIX_END */
+
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <div class="group"><label for="topicSel">Topic</label><select id="topicSel"></select></div>
+  <div class="group"><label for="marksSel">Marks</label><select id="marksSel"><option value="1">1 mark</option><option value="2">2 marks</option><option value="3">3 marks</option><option value="4">4 marks</option><option value="5">5 marks</option></select></div>
+  <div class="group"><label for="calcSel">Paper</label><select id="calcSel"><option value="noncalc">Non-calculator</option><option value="calc">Calculator</option></select></div>
+  <div class="spacer"></div><div class="actions"><button class="primary" id="regenBtn" type="button">Regenerate numbers</button><button class="ghost" id="checkBtn" type="button">Check</button><button class="ghost" id="revealBtn" type="button">Reveal answers</button></div>
+</div></header>
+<main><section id="preview"></section><div class="feedback" id="fb" style="display:none"></div></main>
+<script>
+const TOPICS = [
+  { code:"A16", name:"Quadratic graphs" },
+  { code:"A17", name:"Using formulae" },
+  { code:"A18", name:"Rearrange formulae" }
+];
+const MNS = "http://www.w3.org/1998/Math/MathML";
+function hashToUint32(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function cryptoSeed(){if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]>>>0;}return (Math.random()*2**32)>>>0;}
+function mulberry32(seed){let t=seed>>>0;return function(){t+=0x6D2B79F5;let x=t;x=Math.imul(x^(x>>>15),x|1);x^=x+Math.imul(x^(x>>>7),x|61);return ((x^(x>>>14))>>>0)/4294967296;};}
+function makeRng(seedLike){const seed=(seedLike===undefined||seedLike===null||seedLike==="")?cryptoSeed():(typeof seedLike==="number"?(seedLike>>>0):hashToUint32(String(seedLike)));const r=mulberry32(seed);return{seed,float:()=>r(),int:(min,max)=>Math.floor(r()*(Math.floor(max)-Math.ceil(min)+1))+Math.ceil(min),choice:(arr)=>arr[Math.floor(r()*arr.length)],shuffle:(arr)=>{const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}};}
+function fmt(x,maxDp=6){const n=Number(x);if(!Number.isFinite(n))return String(x);return n.toFixed(maxDp).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');}
+function fmt2(x){return Number(x).toFixed(2);}
+function asNum(v){let s=String(v??"").trim().replace(/,/g,"").replace(/π/gi,"pi");if(!s)return NaN;s=s.replace(/÷/g,"/");const frac=s.match(/^\(?\s*([+-]?\d+(?:\.\d+)?)\s*\)?\s*\/\s*\(?\s*([+-]?\d+(?:\.\d+)?)\s*\)?$/);if(frac){const n=Number(frac[1]),d=Number(frac[2]);if(Number.isFinite(n)&&Number.isFinite(d)&&Math.abs(d)>1e-12)return n/d;}const x=Number(s);return Number.isFinite(x)?x:NaN;}
+function close(a,b,tol=1e-8){return Math.abs(a-b)<=tol;}
+function escapeHtml(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function escapeAttr(s){return String(s??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function textLine(text){return `<div class="textline">${escapeHtml(text)}</div>`;}
+function rawTextLine(html){return `<div class="textline">${html}</div>`;}
+function letters(i){return `(${String.fromCharCode(97+i)})`;}
+function paperTagHtml(paperMode){return paperMode==="calc"?`<span class="paper-tag calc">CALCULATOR</span>`:`<span class="paper-tag nc">NON-CALCULATOR</span>`;}
+function markClassFromMarks(marks,maxMarks){if(marks===maxMarks)return"good";if(marks===0)return"bad";return"partial";}
+function highlightEls(els,cls){(els||[]).forEach(el=>{if(!el)return;el.classList.remove("ok","bad","partial-input");if(cls==="good")el.classList.add("ok");else if(cls==="partial")el.classList.add("partial-input");else el.classList.add("bad");});}
+function mi(s){if(String(s).toLowerCase()==="pi")return`<mi>π</mi>`;if(String(s).toLowerCase()==="rho")return`<mi>ρ</mi>`;return`<mi>${escapeHtml(s)}</mi>`;}
+function mn(n){return`<mn>${escapeHtml(fmt(n))}</mn>`;}function mo(s){const map={"-":"−","*":"×","/":"÷","<=":"≤",">=":"≥"};return`<mo>${escapeHtml(map[s]||s)}</mo>`;}function mrow(...p){return`<mrow>${p.join("")}</mrow>`;}function msup(b,e){return`<msup>${b}${e}</msup>`;}function mfrac(n,d){return`<mfrac><mrow>${n}</mrow><mrow>${d}</mrow></mfrac>`;}function msqrt(b){return`<msqrt><mrow>${b}</mrow></msqrt>`;}function mcbrt(b){return`<mroot><mrow>${b}</mrow><mn>3</mn></mroot>`;}function mathML(body,display="inline"){const cls=display==="block"?"mathline":"math-inline";return`<span class="${cls}"><math xmlns="${MNS}" display="${display}"><mrow>${body}</mrow></math></span>`;}
+function stripOuter(s){s=String(s).trim();while(s.startsWith("(")&&s.endsWith(")")){let d=0,ok=true;for(let i=0;i<s.length;i++){if(s[i]==="(")d++;else if(s[i]===")"){d--;if(d===0&&i<s.length-1){ok=false;break;}}}if(ok)s=s.slice(1,-1).trim();else break;}return s;}
+function findTopOp(s, ops){let d=0;for(let i=s.length-1;i>=0;i--){const ch=s[i];if(ch===")")d++;else if(ch==="(")d--;else if(d===0&&ops.includes(ch)){if(ch==="-"&&(i===0||"+-*/^(,".includes(s[i-1])))continue;return i;}}return-1;}
+function splitTopMul(s){let parts=[],d=0,start=0;for(let i=0;i<s.length;i++){const ch=s[i];if(ch==="(")d++;else if(ch===")")d--;else if(d===0&&ch==="*"){parts.push(s.slice(start,i));start=i+1;}}parts.push(s.slice(start));return parts;}
+function hasWholeOuterParens(s){if(!(s.startsWith("(")&&s.endsWith(")")))return false;let d=0;for(let i=0;i<s.length;i++){if(s[i]==="(")d++;else if(s[i]===")"){d--;if(d===0&&i<s.length-1)return false;}}return d===0;}
+function exprML(raw){let s=String(raw??"").trim().replace(/−/g,"-").replace(/×/g,"*").replace(/÷/g,"/").replace(/π/g,"pi").replace(/√/g,"sqrt").replace(/∛/g,"cbrt").replace(/\s+/g,"");if(!s)return"";let eq=s.indexOf("=");if(eq>0)return exprML(s.slice(0,eq))+mo("=")+exprML(s.slice(eq+1));if(s.startsWith("±"))return mo("±")+exprML(s.slice(1));let idx=findTopOp(s,["+","-"]);if(idx>0){return exprML(s.slice(0,idx))+mo(s[idx])+exprML(s.slice(idx+1));}const mul=splitTopMul(s);if(mul.length>1)return mul.map(exprML).join("");idx=findTopOp(s,["/"]);if(idx>0)return mfrac(exprML(s.slice(0,idx)),exprML(s.slice(idx+1)));idx=findTopOp(s,["^"]);if(idx>0)return msup(exprML(s.slice(0,idx)),exprML(s.slice(idx+1)));if(hasWholeOuterParens(s))return mrow(mo("("),exprML(s.slice(1,-1)),mo(")"));let f=s.match(/^(sqrt|cbrt)\((.*)\)$/i);if(f)return f[1].toLowerCase()==="sqrt"?msqrt(exprML(f[2])):mcbrt(exprML(f[2]));let f2=s.match(/^(sqrt|cbrt)([A-Za-z][A-Za-z0-9]*)$/i);if(f2)return f2[1].toLowerCase()==="sqrt"?msqrt(exprML(f2[2])):mcbrt(exprML(f2[2]));let coeff=s.match(/^(-?\d+(?:\.\d+)?)([A-Za-z]+)$/);if(coeff)return (Number(coeff[1])===-1?mo("-"):(Number(coeff[1])===1?"":mn(coeff[1])))+coeff[2].split("").map(ch=>mi(ch)).join("");if(/^-?\d+(?:\.\d+)?$/.test(s))return s[0]==="-"?mo("-")+mn(s.slice(1)):mn(s);if(s.toLowerCase()==="pi")return mi("π");if(s.toLowerCase()==="rho")return mi("ρ");if(/^[A-Za-z]+$/.test(s))return s.split("").map(ch=>mi(ch)).join("");return`<mtext>${escapeHtml(s)}</mtext>`;}
+function mathHTML(raw,display="inline"){return mathML(exprML(raw),display);}function valueRevealHtml(prefix,valueHtml){return`<div class="textline"><b>${escapeHtml(prefix)}:</b> ${valueHtml}</div>`;}function numberReveal(prefix,n,unit=""){return`<div class="textline"><b>${escapeHtml(prefix)}:</b> <b>${fmt(n)}${unit?" "+escapeHtml(unit):""}</b></div>`;}function numberReveal2(prefix,n,unit=""){return`<div class="textline"><b>${escapeHtml(prefix)}:</b> <b>${fmt2(n)}${unit?" "+escapeHtml(unit):""}</b></div>`;}function piReveal(prefix,coeff,unit=""){return`<div class="textline"><b>${escapeHtml(prefix)}:</b> <b>${coeff===1?"":fmt(coeff)}π${unit?" "+escapeHtml(unit):""}</b></div>`;}
+function makeQuestion(topicCode, bankLabel, paperMode, parts, graph=null){return{topicCode,bankLabel,paperMode,parts,graph,introHtml:graph?textLine("The graph of a quadratic is shown."):"",marksTotal:parts.reduce((s,p)=>s+p.marks,0)};}
+function makeNumberPart(opts){const expected=Number(opts.expected);return{marks:opts.marks,promptHtml:opts.promptHtml,input:{kind:opts.label?"labelNumber":"number",id:opts.id||`n_${Math.random().toString(36).slice(2)}`,label:opts.label||""},revealHtml:opts.revealHtml||numberReveal(opts.revealLabel||"Answer",expected,opts.unit||""),mark(raw){const num=asNum(raw);if(!Number.isFinite(num))return{marks:0,maxMarks:opts.marks,message:"Enter a number."};const tol=opts.tol??(opts.dp2?0.0050001:1e-8);if(close(num,expected,tol))return{marks:opts.marks,maxMarks:opts.marks,message:"Correct."};for(const rule of(opts.partialRules||[])){if(close(num,Number(rule.value),rule.tol??tol))return{marks:Math.min(rule.marks,opts.marks-1),maxMarks:opts.marks,message:rule.message};}if(expected!==0&&close(Math.abs(num),Math.abs(expected),tol))return{marks:0,maxMarks:opts.marks,message:"Check the sign."};return{marks:0,maxMarks:opts.marks,message:opts.message||"Check the substitution and arithmetic."};}};}
+function parsePiCoeff(raw){let s=String(raw??"").trim().toLowerCase();if(!s)return NaN;s=s.replace(/\s+/g,"").replace(/×/g,"*").replace(/pi/g,"π").replace(/\*/g,"");if(s==="π")return 1;if(s==="-π")return-1;let m=s.match(/^(-?\d+(?:\.\d+)?)π$/);if(m)return Number(m[1]);m=s.match(/^π(-?\d+(?:\.\d+)?)$/);if(m)return Number(m[1]);return NaN;}
+function makePiPart(opts){const coeff=Number(opts.coeff);return{marks:opts.marks,promptHtml:opts.promptHtml,input:{kind:"pi",id:opts.id||`pi_${Math.random().toString(36).slice(2)}`},revealHtml:opts.revealHtml||piReveal(opts.revealLabel||"Answer",coeff,opts.unit||""),mark(raw){const c=parsePiCoeff(raw);if(!Number.isFinite(c))return{marks:0,maxMarks:opts.marks,message:"Enter an exact answer in terms of π."};if(close(c,coeff,1e-8))return{marks:opts.marks,maxMarks:opts.marks,message:"Correct."};for(const rule of(opts.partialRules||[])){if(close(c,Number(rule.value),1e-8))return{marks:Math.min(rule.marks,opts.marks-1),maxMarks:opts.marks,message:rule.message};}return{marks:0,maxMarks:opts.marks,message:"Check the multiple of π."};}};}
+/* A16 graph bank */
+const A16_SIGN_STATE={};const A16_TEMPLATE_RANGES={"1_pos":{xMin:-4,xMax:4,yMin:-5,yMax:12},"1_neg":{xMin:-4,xMax:4,yMin:-13,yMax:5},"2_pos":{xMin:-4,xMax:5,yMin:-8,yMax:12},"2_neg":{xMin:-4,xMax:6,yMin:-8,yMax:12},"3_pos":{xMin:-1,xMax:5,yMin:-3,yMax:10},"3_neg":{xMin:-6,xMax:4,yMin:-8,yMax:12},"4_pos":{xMin:-4,xMax:6,yMin:-12,yMax:14},"4_neg":{xMin:-1,xMax:7,yMin:-8,yMax:6},"5_pos":{xMin:-1,xMax:7,yMin:-6,yMax:12},"5_neg":{xMin:-3,xMax:7,yMin:-12,yMax:12}};
+const A16_PAIRS={"1_pos":[[-2,2],[-3,1],[-1,3],[0,2],[1,3]],"1_neg":[[-2,2],[-1,3],[0,4],[1,3]],"2_pos":[[-2,2],[-1,3],[0,4],[1,3],[2,4],[-3,1]],"2_neg":[[-2,4],[-1,3],[0,4],[1,3]],"3_pos":[[0,2],[1,3],[2,4]],"3_neg":[[-5,1],[-4,2],[-3,1]],"4_pos":[[-3,3],[-2,4],[-1,5]],"4_neg":[[0,4],[1,5],[1,3],[2,4]],"5_pos":[[0,4],[1,3],[1,5],[2,4]],"5_neg":[[-2,4],[-1,5],[0,4]]};
+function pickBalancedSign(key,rng){if(!A16_SIGN_STATE[key])A16_SIGN_STATE[key]={pos:0,neg:0};const s=A16_SIGN_STATE[key];let sign;if(s.pos<s.neg)sign=1;else if(s.neg<s.pos)sign=-1;else sign=rng.choice([1,-1]);if(sign>0)s.pos++;else s.neg++;return sign;}
+function buildQuadraticConfig(marksTotal,sign,roots){const [r1,r2]=roots;const a=sign;const h=(r1+r2)/2;const k=-a*(r1-h)*(r1-h);const b=-a*(r1+r2);const c=a*r1*r2;const range=A16_TEMPLATE_RANGES[`${marksTotal}_${sign>0?"pos":"neg"}`];return{a,b,c,r1,r2,h,k,yIntercept:[0,c],extremumWord:sign>0?"minimum":"maximum",...range};}
+function makeSVG(question){const cfg=question.graph,width=430,height=360,p=42;const X=x=>p+(x-cfg.xMin)*(width-2*p)/(cfg.xMax-cfg.xMin);const Y=y=>height-p-(y-cfg.yMin)*(height-2*p)/(cfg.yMax-cfg.yMin);let svg=`<svg viewBox="0 0 ${width} ${height}" aria-label="Quadratic graph">`;svg+=`<rect class="svg-frame" x="${p}" y="${p}" width="${width-2*p}" height="${height-2*p}"/>`;for(let x=Math.ceil(cfg.xMin);x<=cfg.xMax;x++){svg+=`<line class="svg-grid" x1="${X(x)}" y1="${Y(cfg.yMin)}" x2="${X(x)}" y2="${Y(cfg.yMax)}"/>`;if(x!==0)svg+=`<text class="svg-label" x="${X(x)}" y="${Y(0)+15}" text-anchor="middle">${x}</text>`;}for(let y=Math.ceil(cfg.yMin);y<=cfg.yMax;y++){svg+=`<line class="svg-grid" x1="${X(cfg.xMin)}" y1="${Y(y)}" x2="${X(cfg.xMax)}" y2="${Y(y)}"/>`;if(y!==0&&Math.abs(y%2)<1e-9)svg+=`<text class="svg-label" x="${X(0)-8}" y="${Y(y)+4}" text-anchor="end">${y}</text>`;}svg+=`<line class="svg-axis" x1="${X(cfg.xMin)}" y1="${Y(0)}" x2="${X(cfg.xMax)}" y2="${Y(0)}"/><line class="svg-axis" x1="${X(0)}" y1="${Y(cfg.yMin)}" x2="${X(0)}" y2="${Y(cfg.yMax)}"/><text class="svg-label" x="${X(cfg.xMax)-4}" y="${Y(0)-8}" text-anchor="end">x</text><text class="svg-label" x="${X(0)+8}" y="${Y(cfg.yMax)+13}">y</text>`;const pts=[];for(let x=cfg.xMin;x<=cfg.xMax+1e-9;x+=0.035){const y=cfg.a*x*x+cfg.b*x+cfg.c;pts.push(`${X(x)},${Y(y)}`);}svg+=`<polyline class="svg-curve" points="${pts.join(" ")}"/>`;svg+=`</svg>`;return svg;}
+function coordRevealHtml(prefix,point){return`<div class="textline"><b>${escapeHtml(prefix)}:</b> <b>(${fmt(point[0])}, ${fmt(point[1])})</b></div>`;}
+function makeCoordPart(opts){return{marks:opts.marks,promptHtml:opts.promptHtml,input:{kind:"coord",id:opts.id||`c_${Math.random().toString(36).slice(2)}`,xLabel:opts.xLabel||"x =",yLabel:opts.yLabel||"y ="},revealHtml:opts.revealHtml||coordRevealHtml(opts.revealLabel||"Answer",opts.point),mark(raw){const x=asNum(raw.x),y=asNum(raw.y);if(!Number.isFinite(x)||!Number.isFinite(y))return{marks:0,maxMarks:opts.marks,message:"Enter both coordinates."};if(close(x,opts.point[0])&&close(y,opts.point[1]))return{marks:opts.marks,maxMarks:opts.marks,message:"Correct."};if(close(x,opts.point[0])||close(y,opts.point[1]))return{marks:0,maxMarks:opts.marks,message:opts.messageFn?opts.messageFn(x,y):"One coordinate is correct. Check the other coordinate."};return{marks:0,maxMarks:opts.marks,message:opts.messageFn?opts.messageFn(x,y):"Read the coordinate carefully from the graph."};}};}
+function solutionInputCount(roots){return Array.from(new Set(roots.map(x=>String(x)))).length<=1?1:2;}function renderSolutionInputs(baseId,variable,roots){const count=solutionInputCount(roots);return`<div class="solutionboxes${count===1?" one":""}">${Array.from({length:count},(_,i)=>`<span class="solutionbox"><span class="inputlabel">${escapeHtml(variable)} =</span><input id="${baseId}_${i}" class="solutioninput" type="text" inputmode="decimal" placeholder="value" /></span>`).join("")}</div>`;}function collectSolutionInputValues(baseId,roots){const count=solutionInputCount(roots),values=[],els=[];for(let i=0;i<count;i++){const el=document.getElementById(`${baseId}_${i}`);values.push(el?el.value:"");els.push(el);}return{values,els};}
+function scoreSolutionInputs(valuesRaw,expectedRoots){const expected=expectedRoots.slice().sort((a,b)=>a-b);const values=Array.isArray(valuesRaw)?valuesRaw:[valuesRaw];const nums=values.map(asNum);if(expected.length===1||close(expected[0],expected[1])){const target=expected[0];const cc=nums.some(v=>Number.isFinite(v)&&close(v,target))?1:0;return{correctCount:cc,full:cc===1,uniqueCount:1,nums,expected:[target]};}const[e1,e2]=expected;const a=nums[0],b=nums[1];const m1=(Number.isFinite(a)&&close(a,e1)?1:0)+(Number.isFinite(b)&&close(b,e2)?1:0);const m2=(Number.isFinite(a)&&close(a,e2)?1:0)+(Number.isFinite(b)&&close(b,e1)?1:0);const cc=Math.max(m1,m2);return{correctCount:cc,full:cc===2,uniqueCount:2,nums,expected};}
+function solutionInputsMessage(score){if(score.uniqueCount===1)return score.full?"Correct.":"Check the value.";if(score.correctCount===1)return"One root is correct, but you need the other root as well.";return"Check both roots carefully.";}function solutionDisplayHTML(variable,roots){const sorted=roots.slice().sort((a,b)=>a-b);if(sorted.length===1||close(sorted[0],sorted[1]))return`<span>${escapeHtml(variable)} = <b>${fmt(sorted[0])}</b></span>`;return`<span class="reveal-solutions-inline"><span>${escapeHtml(variable)} = <b>${fmt(sorted[0])}</b></span><span>${escapeHtml(variable)} = <b>${fmt(sorted[1])}</b></span></span>`;}
+function makeRootsPart(opts){return{marks:opts.marks,promptHtml:opts.promptHtml,input:{kind:"solution",id:opts.id||`s_${Math.random().toString(36).slice(2)}`,variable:opts.variable,roots:opts.roots},revealHtml:valueRevealHtml(opts.revealLabel||"Roots",solutionDisplayHTML(opts.variable,opts.roots)),mark(raw){const score=scoreSolutionInputs(raw,opts.roots);return{marks:score.correctCount,maxMarks:opts.marks,message:score.correctCount===opts.marks?"Correct.":solutionInputsMessage(score)};}};}
+function makeTurningPointPart(cfg){return makeCoordPart({marks:1,promptHtml:textLine("Write down the coordinates of the turning point."),point:[cfg.h,cfg.k],revealLabel:"Turning point"});}
+function makeYInterceptPart(cfg){return makeNumberPart({marks:1,promptHtml:textLine("Write down the y-intercept."),expected:cfg.yIntercept[1],revealHtml:valueRevealHtml("y-intercept",`<b>${fmt(cfg.yIntercept[1])}</b>`),message:"The y-intercept is the y-value where the graph crosses the y-axis."});}
+function makeRootsQuestionPart(cfg){return makeRootsPart({marks:2,promptHtml:textLine("Write down the roots of the graph."),variable:"x",roots:[cfg.r1,cfg.r2],revealLabel:"Roots"});}
+function makeLineSymmetryPart(cfg){return makeNumberPart({marks:1,promptHtml:textLine("Write down the line of symmetry."),label:"x =",expected:cfg.h,revealHtml:valueRevealHtml("Line of symmetry",`<b>x = ${fmt(cfg.h)}</b>`)});}function makeExtremumValuePart(cfg){const title=`${cfg.extremumWord.charAt(0).toUpperCase()}${cfg.extremumWord.slice(1)} value of y`;return makeNumberPart({marks:1,promptHtml:textLine(`Write down the ${cfg.extremumWord} value of y.`),label:"y =",expected:cfg.k,revealHtml:valueRevealHtml(title,`<b>${fmt(cfg.k)}</b>`)});}
+function buildA16Question(marksTotal,paperMode,rng){const sign=pickBalancedSign(`A16_${marksTotal}`,rng);const key=`${marksTotal}_${sign>0?"pos":"neg"}`;const roots=rng.choice(A16_PAIRS[key]);const cfg=buildQuadraticConfig(marksTotal,sign,roots);if(marksTotal===1)return sign>0?makeQuestion("A16","1M",paperMode,[makeYInterceptPart(cfg)],cfg):makeQuestion("A16","1M",paperMode,[makeTurningPointPart(cfg)],cfg);if(marksTotal===2)return sign>0?makeQuestion("A16","2M",paperMode,[makeRootsQuestionPart(cfg)],cfg):makeQuestion("A16","2M",paperMode,[makeLineSymmetryPart(cfg),makeYInterceptPart(cfg)],cfg);if(marksTotal===3)return sign>0?makeQuestion("A16","3M",paperMode,[makeRootsQuestionPart(cfg),makeTurningPointPart(cfg)],cfg):makeQuestion("A16","3M",paperMode,[makeTurningPointPart(cfg),makeYInterceptPart(cfg),makeExtremumValuePart(cfg)],cfg);if(marksTotal===4)return sign>0?makeQuestion("A16","4M",paperMode,[makeRootsQuestionPart(cfg),makeTurningPointPart(cfg),makeYInterceptPart(cfg)],cfg):makeQuestion("A16","4M",paperMode,[makeRootsQuestionPart(cfg),makeLineSymmetryPart(cfg),makeTurningPointPart(cfg)],cfg);return makeQuestion("A16","5M",paperMode,[makeRootsQuestionPart(cfg),makeTurningPointPart(cfg),makeLineSymmetryPart(cfg),makeYInterceptPart(cfg)],cfg);}
+/* A17 using formulae */
+function valuesText(vals){return rawTextLine("When "+vals.map(v=>`${mathHTML(v[0]+"="+fmt(v[1]),"inline")}${v[2]?" "+escapeHtml(v[2]):""}`).join(" and ")+",");}
+function formulaPrompt(intro, formula, extra=""){return textLine(intro)+mathHTML(formula,"block")+(extra?textLine(extra):"");}
+function numPart(prompt,expected,marks,unit="",dp2=false,partials=[]){return makeNumberPart({marks,promptHtml:prompt,expected,unit,dp2,revealHtml:dp2?numberReveal2("Answer",expected,unit):numberReveal("Answer",expected,unit),partialRules:partials});}
+function piPart(prompt,coeff,marks,unit="",partials=[]){return makePiPart({marks,promptHtml:prompt,coeff,unit,partialRules:partials});}
+function cleanDec(rng,min=1,max=9){return rng.choice([0.5,0.75,1.2,1.5,2.4,3.2,3.5,3.6,4.2,4.5,4.7,4.8,5.5,5.7,6.4,6.5,7.5,7.8,8.4,8.5,8.9,9.6].filter(x=>x>=min&&x<=max));}
+function buildA17Question(marksTotal,paperMode,rng){const calc=paperMode==="calc";const builders=A17_BUILDERS[paperMode][marksTotal];return rng.choice(builders)(rng,paperMode);} 
+const A17_BUILDERS={noncalc:{},calc:{}};
+A17_BUILDERS.noncalc[1]=[
+(r,p)=>{const m=r.int(2,9),a=r.int(2,6);return makeQuestion("A17","1M1",p,[numPart(formulaPrompt("Use the formula","F=m*a","where F is force, m is mass and a is acceleration.")+valuesText([["m",m,"kilograms"],["a",a,"metres per second squared"]])+textLine("find F in newtons."),m*a,1,"newtons")]);},
+(r,p)=>{const x=r.choice([-7,-6,-5,-4,-3,3,4,5,6,7]);return makeQuestion("A17","1M2",p,[numPart(formulaPrompt("Use the formula","y=x^2")+valuesText([["x",x,""]])+textLine("find y."),x*x,1)]);},
+(r,p)=>{const x=r.choice([-5,-4,-3,-2,2,3,4,5]);return makeQuestion("A17","1M3",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["x",x,""]])+textLine("find z."),x*x*x,1)]);},
+(r,p)=>{const L=r.int(5,14),w=r.int(2,9);return makeQuestion("A17","1M4",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²")]);},
+(r,p)=>{const rad=r.int(2,8);return makeQuestion("A17","1M5",p,[piPart(formulaPrompt("Use the formula","C=2*pi*r","where r is the radius.")+valuesText([["r",rad,"cm"]])+textLine("find C in cm. Give your answer in terms of π."),2*rad,1,"cm",[{value:rad,marks:0,message:"You used r instead of 2r."}])]);}
+];
+A17_BUILDERS.noncalc[2]=[
+(r,p)=>{const x=r.int(4,12),A=x*x;return makeQuestion("A17","2M1",p,[numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine("When A = "+A+" cm² and x is a side length, find x in cm."),x,2,"cm",false,[{value:A,marks:1,message:"You identified A, but you need the square root for the side length."}])]);},
+(r,p)=>{const x=r.choice([-5,-4,-3,-2,2,3,4,5]);const z=x*x*x;return makeQuestion("A17","2M2",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["z",z,""]])+textLine("find x."),x,2,"",false,[{value:Math.abs(x),marks:1,message:"The magnitude is correct, but check the sign for the cube root."}])]);},
+(r,p)=>{const a=r.int(3,9),b=r.int(8,14),h=r.int(3,8);const A=0.5*(a+b)*h;return makeQuestion("A17","2M3",p,[numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["a",a,"cm"],["b",b,"cm"],["h",h,"cm"]])+textLine("find A in cm²."),A,2,"cm²",false,[{value:(a+b)*h,marks:1,message:"You substituted correctly, but forgot to multiply by one half."}])]);},
+(r,p)=>{const rho=r.int(3,12),side1=r.int(2,5),side2=r.int(3,6);const V=side1*side2,m=rho*V;return makeQuestion("A17","2M4",p,[numPart(formulaPrompt("Use the formula","rho=m/V","where ρ is density.")+rawTextLine(`When ${mathHTML("m="+m,"inline")} kilograms and ${mathHTML("V="+side1+"*"+side2,"inline")} cubic metres,`)+textLine("find ρ in kilograms per cubic metre."),rho,2,"kg/m³",false,[{value:m,marks:1,message:"You used the mass, but density is mass divided by volume."}])]);},
+(r,p)=>{const rad=r.int(3,12);return makeQuestion("A17","2M5",p,[numPart(formulaPrompt("The circumference C of a circle is given by","C=2*pi*r","where r is the radius.")+rawTextLine(`When ${mathHTML("C="+(2*rad)+"*pi","inline")} cm, find r in cm.`),rad,2,"cm",false,[{value:2*rad,marks:1,message:"You found 2r. Divide by 2 to find r."}])]);}
+];
+function a17Parts(arr){return arr;}
+A17_BUILDERS.noncalc[3]=[
+(r,p)=>{const A=r.int(6,12),h=r.int(2,5),x=r.int(5,10);return makeQuestion("A17","3M1",p,a17Parts([numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["A",A,"cm²"],["h",h,"cm"]])+textLine("find V in cm³."),A*h,1,"cm³"),numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine(`When A = ${x*x} cm² and x is a side length, find x in cm.`),x,2,"cm") ]));},
+(r,p)=>{const L=r.int(5,10),w=r.int(3,8),x=r.int(4,8);return makeQuestion("A17","3M2",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²"),numPart(formulaPrompt("The volume V of a cube is given by","V=x^3")+textLine(`When V = ${x*x*x} cm³ and x is an edge length, find x in cm.`),x,2,"cm")]);},
+(r,p)=>{const s=r.int(4,12),t=r.int(3,10),h=r.int(3,9),A=r.int(5,12),V=A*h;return makeQuestion("A17","3M3",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",s,"metres per second"],["t",t,"seconds"]])+textLine("find d in metres."),s*t,1,"m"),numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["V",V,"cm³"],["h",h,"cm"]])+textLine("find A in cm²."),A,2,"cm²")]);},
+(r,p)=>{const rho=r.int(2,8),V=r.int(5,14),b=r.int(5,12),h=r.int(6,14);return makeQuestion("A17","3M4",p,[numPart(formulaPrompt("Use the formula","m=rho*V","where ρ is density.")+valuesText([["rho",rho,"kg/m³"],["V",V,"cubic metres"]])+textLine("find m in kilograms."),rho*V,1,"kg"),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["b",b,"cm"],["h",h,"cm"]])+textLine("find A in cm²."),0.5*b*h,2,"cm²",false,[{value:b*h,marks:1,message:"You multiplied b and h, but forgot the half."}])]);},
+(r,p)=>{const L=r.int(5,12),w=r.int(3,8),P=2*L+2*w;return makeQuestion("A17","3M5",p,[numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["w",w,"cm"]])+textLine("find L in cm."),L,3,"cm",false,[{value:P-2*w,marks:1,message:"You subtracted 2w correctly, but still need to divide by 2."},{value:P/2-w,marks:2,message:"Correct method. Check the arithmetic."}])]);}
+];
+A17_BUILDERS.noncalc[4]=[
+(r,p)=>{const s=r.int(4,10),t=r.int(3,9),L=r.int(4,12),w=r.int(3,10),P=2*L+2*w;return makeQuestion("A17","4M1",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",s,"m/s"],["t",t,"seconds"]])+textLine("find d in metres."),s*t,1,"m"),numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["L",L,"cm"]])+textLine("find w in cm."),w,3,"cm")]);},
+(r,p)=>{const s=r.int(5,10),t=r.int(3,8),b=r.int(4,9),h=r.int(5,12),A=0.5*b*h;return makeQuestion("A17","4M2",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",s,"m/s"],["t",t,"seconds"]])+textLine("find d in metres."),s*t,1,"m"),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["b",b,"cm"]])+textLine("find h in cm."),h,3,"cm")]);},
+(r,p)=>{const L=r.int(5,14),w=r.int(2,8),h=r.int(3,9),V=L*w*h;return makeQuestion("A17","4M3",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²"),numPart(formulaPrompt("Use the formula","V=L*w*h")+valuesText([["V",V,"cm³"],["L",L,"cm"],["w",w,"cm"]])+textLine("find h in cm."),h,3,"cm")]);},
+(r,p)=>{const A=r.int(5,10),h=r.int(3,8),rad=r.int(4,10);return makeQuestion("A17","4M4",p,[numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["A",A,"cm²"],["h",h,"cm"]])+textLine("find V in cm³."),A*h,1,"cm³"),piPart(formulaPrompt("Use the formulas","A=pi*r^2","and")+mathHTML("C=2*pi*r","block")+textLine("where r is the radius.")+rawTextLine(`When ${mathHTML("A="+(rad*rad)+"*pi","inline")} cm², find the circumference C in cm. Give your answer in terms of π.`),2*rad,3,"cm")]);},
+(r,p)=>{const x=r.choice([-5,-4,-3,3,4,5]),a=r.int(3,7),b=r.int(8,14),h=r.int(3,7),A=0.5*(a+b)*h;return makeQuestion("A17","4M5",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["x",x,""]])+textLine("find z."),x*x*x,1),numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["a",a,"cm"],["h",h,"cm"]])+textLine("find b in cm."),b,3,"cm")]);}
+];
+A17_BUILDERS.noncalc[5]=[
+(r,p)=>{const x=r.int(6,12),L=r.int(5,12),w=r.int(4,11),P=2*L+2*w;return makeQuestion("A17","5M1",p,[numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine(`When A = ${x*x} cm² and x is a side length, find x in cm.`),x,2,"cm"),numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["L",L,"cm"]])+textLine("find w in cm."),w,3,"cm")]);},
+(r,p)=>{const x=r.int(4,9),b=r.int(5,12),h=r.int(5,14),A=0.5*b*h;return makeQuestion("A17","5M2",p,[numPart(formulaPrompt("The volume V of a cube is given by","V=x^3")+textLine(`When V = ${x*x*x} cm³ and x is an edge length, find x in cm.`),x,2,"cm"),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["b",b,"cm"]])+textLine("find h in cm."),h,3,"cm")]);},
+(r,p)=>{const rho=r.int(4,10),v1=r.int(2,5),v2=r.int(3,6),V=v1*v2,m=rho*V,L=r.int(4,8),w=r.int(4,8),h=r.int(4,10),Vol=L*w*h;return makeQuestion("A17","5M3",p,[numPart(formulaPrompt("Use the formula","rho=m/V","where ρ is density.")+rawTextLine(`When ${mathHTML("m="+m,"inline")} kilograms and ${mathHTML("V="+v1+"*"+v2,"inline")} cubic metres, find ρ in kilograms per cubic metre.`),rho,2,"kg/m³"),numPart(formulaPrompt("Use the formula","V=L*w*h")+valuesText([["V",Vol,"cm³"],["L",L,"cm"],["w",w,"cm"]])+textLine("find h in cm."),h,3,"cm")]);},
+(r,p)=>{const rad=r.int(5,12),a=r.int(3,7),b=r.int(8,14),h=r.int(3,7),A=0.5*(a+b)*h;return makeQuestion("A17","5M4",p,[numPart(formulaPrompt("The area A of a circle is given by","A=pi*r^2","where r is the radius.")+rawTextLine(`When ${mathHTML("A="+(rad*rad)+"*pi","inline")} cm², find r in cm.`),rad,2,"cm"),numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["a",a,"cm"],["h",h,"cm"]])+textLine("find b in cm."),b,3,"cm")]);},
+(r,p)=>{const L=r.int(5,12),w=r.int(3,8),rad=r.int(3,10),A=r.int(5,12),h=r.int(3,10);return makeQuestion("A17","5M5",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²"),numPart(formulaPrompt("The circumference C of a circle is given by","C=2*pi*r","where r is the radius.")+rawTextLine(`When ${mathHTML("C="+(2*rad)+"*pi","inline")} cm, find r in cm.`),rad,2,"cm"),numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["V",A*h,"cm³"],["A",A,"cm²"]])+textLine("find h in cm."),h,2,"cm")]);}
+];
+function cpart(builder){return builder;}A17_BUILDERS.calc[1]=A17_BUILDERS.noncalc[1].map((fn,idx)=>(r,p)=>{if(idx===4){const rad=cleanDec(r,2,8);return makeQuestion("A17","1M5-C",p,[numPart(formulaPrompt("Use the formula","C=2*pi*r","where r is the radius.")+valuesText([["r",rad,"cm"]])+textLine("find C in cm. Give your answer to 2 decimal places."),2*Math.PI*rad,1,"cm",true)]);}if(idx===1){const x=r.choice([-3.5,-4.5,2.5,5.5]);return makeQuestion("A17","1M2-C",p,[numPart(formulaPrompt("Use the formula","y=x^2")+valuesText([["x",x,""]])+textLine("find y."),x*x,1)]);}if(idx===2){const x=r.choice([-3.5,-2.5,2.5,3.5]);return makeQuestion("A17","1M3-C",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["x",x,""]])+textLine("find z."),x*x*x,1)]);}if(idx===3){const L=cleanDec(r,4,13),w=cleanDec(r,2,7);return makeQuestion("A17","1M4-C",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²",true)]);}const m=cleanDec(r,2,8),a=cleanDec(r,2,5);return makeQuestion("A17","1M1-C",p,[numPart(formulaPrompt("Use the formula","F=m*a","where F is force, m is mass and a is acceleration.")+valuesText([["m",m,"kilograms"],["a",a,"metres per second squared"]])+textLine("find F in newtons."),m*a,1,"newtons",true)]);});
+function calcRoot(r){return r.choice([1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5]);}
+A17_BUILDERS.calc[2]=[
+(r,p)=>{const x=calcRoot(r);return makeQuestion("A17","2M1-C",p,[numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine(`When A = ${fmt(x*x)} cm² and x is a side length, find x in cm.`),x,2,"cm",true)]);},
+(r,p)=>{const x=r.choice([-3.5,-2.5,2.5,3.5]);return makeQuestion("A17","2M2-C",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["z",x*x*x,""]])+textLine("find x."),x,2,"",true)]);},
+(r,p)=>{const a=cleanDec(r,3,8),b=cleanDec(r,8,12),h=cleanDec(r,3,6);return makeQuestion("A17","2M3-C",p,[numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["a",a,"cm"],["b",b,"cm"],["h",h,"cm"]])+textLine("find A in cm²."),0.5*(a+b)*h,2,"cm²",true)]);},
+(r,p)=>{const rho=cleanDec(r,3,10),v1=cleanDec(r,2,4),v2=cleanDec(r,3,5),V=v1*v2,m=rho*V;return makeQuestion("A17","2M4-C",p,[numPart(formulaPrompt("Use the formula","rho=m/V","where ρ is density.")+rawTextLine(`When ${mathHTML("m="+fmt(m),"inline")} kilograms and ${mathHTML("V="+fmt(v1)+"*"+fmt(v2),"inline")} cubic metres, find ρ in kilograms per cubic metre.`),rho,2,"kg/m³",true)]);},
+(r,p)=>{const rad=cleanDec(r,2,8),C=2*Math.PI*rad;return makeQuestion("A17","2M5-C",p,[numPart(formulaPrompt("Use the formula","C=2*pi*r","where r is the radius.")+rawTextLine(`When ${mathHTML("C="+fmt2(C),"inline")} cm, find r in cm. Give your answer to 2 decimal places.`),rad,2,"cm",true)]);}
+];
+A17_BUILDERS.calc[3]=[
+(r,p)=>{const A=cleanDec(r,6,12),h=cleanDec(r,2,5),x=calcRoot(r);return makeQuestion("A17","3M1-C",p,[numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["A",A,"cm²"],["h",h,"cm"]])+textLine("find V in cm³."),A*h,1,"cm³",true),numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine(`When A = ${fmt(x*x)} cm² and x is a side length, find x in cm.`),x,2,"cm",true)]);},
+(r,p)=>{const L=cleanDec(r,4,8),w=cleanDec(r,3,7),x=r.choice([1.5,2.5,3.5]);return makeQuestion("A17","3M2-C",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²",true),numPart(formulaPrompt("The volume V of a cube is given by","V=x^3")+textLine(`When V = ${fmt(x*x*x)} cm³ and x is an edge length, find x in cm.`),x,2,"cm",true)]);},
+(r,p)=>{const sp=cleanDec(r,5,10),t=cleanDec(r,2,5),h=cleanDec(r,3,6),A=cleanDec(r,6,12),V=A*h;return makeQuestion("A17","3M3-C",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",sp,"metres per second"],["t",t,"seconds"]])+textLine("find d in metres."),sp*t,1,"m",true),numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["V",V,"cm³"],["h",h,"cm"]])+textLine("find A in cm²."),A,2,"cm²",true)]);},
+(r,p)=>{const rho=cleanDec(r,2,8),V=cleanDec(r,5,10),b=cleanDec(r,5,8),h=cleanDec(r,6,10);return makeQuestion("A17","3M4-C",p,[numPart(formulaPrompt("Use the formula","m=rho*V","where ρ is density.")+valuesText([["rho",rho,"kg/m³"],["V",V,"cubic metres"]])+textLine("find m in kilograms."),rho*V,1,"kg",true),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["b",b,"cm"],["h",h,"cm"]])+textLine("find A in cm²."),0.5*b*h,2,"cm²",true)]);},
+(r,p)=>{const L=cleanDec(r,5,10),w=cleanDec(r,3,7),P=2*L+2*w;return makeQuestion("A17","3M5-C",p,[numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["w",w,"cm"]])+textLine("find L in cm."),L,3,"cm",true)]);}
+];
+A17_BUILDERS.calc[4]=[
+(r,p)=>{const sp=cleanDec(r,5,10),t=cleanDec(r,2,5),L=cleanDec(r,5,10),w=cleanDec(r,3,8),P=2*L+2*w;return makeQuestion("A17","4M1-C",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",sp,"m/s"],["t",t,"seconds"]])+textLine("find d in metres."),sp*t,1,"m",true),numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["L",L,"cm"]])+textLine("find w in cm."),w,3,"cm",true)]);},
+(r,p)=>{const sp=cleanDec(r,5,10),t=cleanDec(r,2,5),b=cleanDec(r,5,8),h=cleanDec(r,6,12),A=0.5*b*h;return makeQuestion("A17","4M2-C",p,[numPart(formulaPrompt("Use the formula","d=s*t","where d is distance, s is speed and t is time.")+valuesText([["s",sp,"m/s"],["t",t,"seconds"]])+textLine("find d in metres."),sp*t,1,"m",true),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["b",b,"cm"]])+textLine("find h in cm."),h,3,"cm",true)]);},
+(r,p)=>{const L=cleanDec(r,5,9),w=cleanDec(r,3,6),h=cleanDec(r,3,8),V=L*w*h;return makeQuestion("A17","4M3-C",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²",true),numPart(formulaPrompt("Use the formula","V=L*w*h")+valuesText([["V",V,"cm³"],["L",L,"cm"],["w",w,"cm"]])+textLine("find h in cm."),h,3,"cm",true)]);},
+(r,p)=>{const A=cleanDec(r,6,10),h=cleanDec(r,2,5),rad=cleanDec(r,4,8),area=Math.PI*rad*rad;return makeQuestion("A17","4M4-C",p,[numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["A",A,"cm²"],["h",h,"cm"]])+textLine("find V in cm³."),A*h,1,"cm³",true),numPart(formulaPrompt("Use the formulas","A=pi*r^2","and")+mathHTML("C=2*pi*r","block")+textLine("where r is the radius.")+rawTextLine(`When ${mathHTML("A="+fmt2(area),"inline")} cm², find the circumference C in cm. Give your answer to 2 decimal places.`),2*Math.PI*rad,3,"cm",true)]);},
+(r,p)=>{const x=r.choice([-3.5,-2.5,2.5,3.5]),a=cleanDec(r,3,6),b=cleanDec(r,7,10),h=cleanDec(r,3,6),A=0.5*(a+b)*h;return makeQuestion("A17","4M5-C",p,[numPart(formulaPrompt("Use the formula","z=x^3")+valuesText([["x",x,""]])+textLine("find z."),x*x*x,1,"",true),numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["a",a,"cm"],["h",h,"cm"]])+textLine("find b in cm."),b,3,"cm",true)]);}
+];
+A17_BUILDERS.calc[5]=[
+(r,p)=>{const x=calcRoot(r),L=cleanDec(r,5,10),w=cleanDec(r,4,9),P=2*L+2*w;return makeQuestion("A17","5M1-C",p,[numPart(formulaPrompt("The area A of a square is given by","A=x^2")+textLine(`When A = ${fmt(x*x)} cm² and x is a side length, find x in cm.`),x,2,"cm",true),numPart(formulaPrompt("Use the formula","P=2*L+2*w")+valuesText([["P",P,"cm"],["L",L,"cm"]])+textLine("find w in cm."),w,3,"cm",true)]);},
+(r,p)=>{const x=r.choice([1.5,2.5,3.5]),b=cleanDec(r,5,8),h=cleanDec(r,6,11),A=0.5*b*h;return makeQuestion("A17","5M2-C",p,[numPart(formulaPrompt("The volume V of a cube is given by","V=x^3")+textLine(`When V = ${fmt(x*x*x)} cm³ and x is an edge length, find x in cm.`),x,2,"cm",true),numPart(formulaPrompt("Use the formula","A=1/2*b*h","for the area of a triangle, where b is the base and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["b",b,"cm"]])+textLine("find h in cm."),h,3,"cm",true)]);},
+(r,p)=>{const rho=cleanDec(r,4,9),v1=cleanDec(r,2,4),v2=cleanDec(r,3,5),Vv=v1*v2,m=rho*Vv,L=cleanDec(r,4,8),w=cleanDec(r,4,8),h=cleanDec(r,4,8),Vol=L*w*h;return makeQuestion("A17","5M3-C",p,[numPart(formulaPrompt("Use the formula","rho=m/V","where ρ is density.")+rawTextLine(`When ${mathHTML("m="+fmt(m),"inline")} kilograms and ${mathHTML("V="+fmt(v1)+"*"+fmt(v2),"inline")} cubic metres, find ρ in kilograms per cubic metre.`),rho,2,"kg/m³",true),numPart(formulaPrompt("Use the formula","V=L*w*h")+valuesText([["V",Vol,"cm³"],["L",L,"cm"],["w",w,"cm"]])+textLine("find h in cm."),h,3,"cm",true)]);},
+(r,p)=>{const rad=cleanDec(r,4,9),area=Math.PI*rad*rad,a=cleanDec(r,3,6),b=cleanDec(r,7,12),h=cleanDec(r,4,7),A=0.5*(a+b)*h;return makeQuestion("A17","5M4-C",p,[numPart(formulaPrompt("The area A of a circle is given by","A=pi*r^2","where r is the radius.")+rawTextLine(`When ${mathHTML("A="+fmt2(area),"inline")} cm², find r in cm. Give your answer to 2 decimal places.`),rad,2,"cm",true),numPart(formulaPrompt("Use the formula","A=1/2*(a+b)*h","for the area of a trapezium, where a and b are the parallel sides and h is the perpendicular height.")+valuesText([["A",A,"cm²"],["a",a,"cm"],["h",h,"cm"]])+textLine("find b in cm."),b,3,"cm",true)]);},
+(r,p)=>{const L=cleanDec(r,5,8),w=cleanDec(r,3,6),rad=cleanDec(r,3,9),C=2*Math.PI*rad,A=cleanDec(r,6,10),h=cleanDec(r,3,9);return makeQuestion("A17","5M5-C",p,[numPart(formulaPrompt("Use the formula","A=L*w")+valuesText([["L",L,"cm"],["w",w,"cm"]])+textLine("find A in cm²."),L*w,1,"cm²",true),numPart(formulaPrompt("Use the formula","C=2*pi*r","where r is the radius.")+rawTextLine(`When ${mathHTML("C="+fmt2(C),"inline")} cm, find r in cm. Give your answer to 2 decimal places.`),rad,2,"cm",true),numPart(formulaPrompt("The volume V of a prism is given by","V=A*h","where A is the area of the cross-section and h is the length of the prism.")+valuesText([["V",A*h,"cm³"],["A",A,"cm²"]])+textLine("find h in cm."),h,2,"cm",true)]);}
+];
+/* A18 rearrange formulae */
+function normaliseForEval(raw){let s=String(raw??"").trim();s=s.replace(/<[^>]*>/g,"").replace(/[−–—]/g,"-").replace(/²/g,"^2").replace(/³/g,"^3").replace(/÷/g,"/").replace(/×/g,"*").replace(/√\s*([A-Za-z])/g,"sqrt($1)").replace(/∛\s*([A-Za-z])/g,"cbrt($1)").replace(/√/g,"sqrt").replace(/∛/g,"cbrt").replace(/π/g,"pi").replace(/\s+/g,"");if(s.includes("="))s=s.split("=").pop();return s;}
+function tokenizeExpr(raw){const s=normaliseForEval(raw);if(!s)return[];const out=[];let i=0;while(i<s.length){if(s.slice(i,i+4).toLowerCase()==="sqrt"){out.push({type:"func",value:"sqrt"});i+=4;continue;}if(s.slice(i,i+4).toLowerCase()==="cbrt"){out.push({type:"func",value:"cbrt"});i+=4;continue;}const ch=s[i];if(/[0-9.]/.test(ch)){let j=i+1;while(j<s.length&&/[0-9.]/.test(s[j]))j++;out.push({type:"num",value:s.slice(i,j)});i=j;continue;}if(/[A-Za-z]/.test(ch)){out.push({type:"id",value:ch});i++;continue;}if(ch==="("){out.push({type:"lparen",value:ch});i++;continue;}if(ch===")"){out.push({type:"rparen",value:ch});i++;continue;}if("+-*/^".includes(ch)){out.push({type:"op",value:ch});i++;continue;}return null;}return out;}
+function exprToJs(raw){const toks=tokenizeExpr(raw);if(toks===null)return null;const out=[];const left=new Set(["num","id","rparen"]);const right=new Set(["num","id","lparen","func"]);for(let i=0;i<toks.length;i++){const prev=toks[i-1],cur=toks[i];if(prev&&left.has(prev.type)&&right.has(cur.type)){if(!(cur.type==="lparen"&&prev.type==="func"))out.push("*");}out.push(cur.value);}return out.join("").replace(/\^/g,"**");}
+function varsInExpr(raw){const toks=tokenizeExpr(raw);if(toks===null)return[];return[...new Set(toks.filter(t=>t.type==="id").map(t=>t.value))].sort();}
+function evalExpr(raw,assign){const js=exprToJs(raw);if(!js)return null;const vars=Object.keys(assign||{});const vals=vars.map(k=>assign[k]);try{const f=Function("sqrt","cbrt",...vars,`"use strict"; return (${js});`);const v=f(Math.sqrt,Math.cbrt,...vals);return Number.isFinite(v)?v:null;}catch(e){return null;}}
+function exprEquivalent(user,expected){const u=normaliseForEval(user),e=normaliseForEval(expected);if(!u||!e)return false;const vars=[...new Set(varsInExpr(u).concat(varsInExpr(e)))];const seeds=[[2,3,5,7,11,13],[-2,4,-5,6,-7,8],[1,2,3,4,5,6],[9,4,16,25,36,49],[5,-1,2,-3,7,-4],[3,8,27,2,6,10]];for(const row of seeds){const assign={};vars.forEach((v,i)=>assign[v]=row[i%row.length]);const uv=evalExpr(u,assign),ev=evalExpr(e,assign);if(uv===null||ev===null)return false;if(!close(uv,ev,Math.max(1e-8,Math.abs(ev)*1e-8)))return false;}return true;}
+function pmEquivalent(raw,base){let s=normaliseForEval(raw).replace(/\+\/-/g,"±");if(s.startsWith("±"))return exprEquivalent(s.slice(1),base);if(s.includes("±"))return exprEquivalent(s.replace("±",""),base);const parts=s.split(/,|or/i).filter(Boolean);if(parts.length>=2){return parts.some(p=>exprEquivalent(p,base))&&parts.some(p=>exprEquivalent(p,`-(${base})`));}return false;}
+function serializeRichNode(node){if(!node)return"";if(node.nodeType===Node.TEXT_NODE)return node.textContent;if(node.nodeType!==Node.ELEMENT_NODE)return"";if(node.classList.contains("frac-node")){const n=node.querySelector(".frac-num")?.value||"";const d=node.querySelector(".frac-den")?.value||"";return`((${n})/(${d}))`;}if(node.classList.contains("pow-node")){const p=node.querySelector(".pow-exp")?.value||"";return`^(${p})`;}if(node.tagName==="BR")return"";let out="";node.childNodes.forEach(ch=>out+=serializeRichNode(ch));return out;}
+function getRichText(id){const root=document.getElementById(id);if(!root)return"";let out="";root.childNodes.forEach(ch=>out+=serializeRichNode(ch));return out.trim();}
+function makeExprPart(opts){return{marks:opts.marks,promptHtml:opts.promptHtml,input:{kind:"expr",id:opts.id||`ex_${Math.random().toString(36).slice(2)}`,subject:opts.subject},revealHtml:valueRevealHtml("Answer",mathHTML(`${opts.subject}=${opts.answer}`,"inline")),mark(raw){if(!String(raw??"").trim())return{marks:0,maxMarks:opts.marks,message:"Enter the rearranged formula."};if(opts.pm?pmEquivalent(raw,opts.pmBase):exprEquivalent(raw,opts.answer))return{marks:opts.marks,maxMarks:opts.marks,message:"Correct."};for(const p of(opts.partials||[])){if(exprEquivalent(raw,p.expr))return{marks:Math.min(p.marks,opts.marks-1),maxMarks:opts.marks,message:p.message};}return{marks:0,maxMarks:opts.marks,message:opts.message||"Check the inverse operations and the order of the rearrangement."};}};}
+function a18Prompt(subject,formula,extra=""){return textLine(`Make ${subject} the subject of the formula${extra?". "+extra:"."}`)+mathHTML(formula,"block");}
+function partA18(subject,formula,answer,marks,opts={}){return makeExprPart({subject,marks,answer,promptHtml:a18Prompt(subject,formula,opts.extra||""),pm:opts.pm,pmBase:opts.pmBase,partials:opts.partials||[]});}
+const A18_BANK={
+1:[()=>makeQuestion("A18","1M1","shared",[partA18("x","y=x+7","y-7",1)]),()=>makeQuestion("A18","1M2","shared",[partA18("s","P=4*s","P/4",1)]),()=>makeQuestion("A18","1M3","shared",[partA18("b","A=b*h","A/h",1)]),()=>makeQuestion("A18","1M4","shared",[partA18("x","A=x^2","sqrt(A)",1,{extra:"where x is positive"})]),()=>makeQuestion("A18","1M5","shared",[partA18("x","y=x^3","cbrt(y)",1)]),()=>makeQuestion("A18","1M6","shared",[partA18("x","y=sqrt(x)","y^2",1)]),()=>makeQuestion("A18","1M7","shared",[partA18("x","y=cbrt(x)","y^3",1,{extra:"where ∛x means the cube root of x"})])],
+2:[()=>makeQuestion("A18","2M1","shared",[partA18("x","y=3*x+5","(y-5)/3",2,{partials:[{expr:"y-5",marks:1,message:"You subtracted 5; now divide by 3."},{expr:"y/3-5",marks:1,message:"Divide the whole of y − 5 by 3."}]} )]),()=>makeQuestion("A18","2M2","shared",[partA18("p","T=3*p+q","(T-q)/3",2,{partials:[{expr:"T-q",marks:1,message:"You subtracted q; now divide by 3."}]} )]),()=>makeQuestion("A18","2M3","shared",[partA18("h","A=1/2*b*h","2*A/b",2,{partials:[{expr:"A/b",marks:1,message:"Remember to undo the one half by multiplying by 2."}]} )]),()=>makeQuestion("A18","2M4","shared",[partA18("x","y=x^2","±sqrt(y)",2,{extra:"Give both possible values of x",pm:true,pmBase:"sqrt(y)",partials:[{expr:"sqrt(y)",marks:1,message:"You have the square-root step; include both possible signs."}]} )]),()=>makeQuestion("A18","2M5","shared",[partA18("x","A=4*x^2","sqrt(A/4)",2,{extra:"where x is positive",partials:[{expr:"A/4",marks:1,message:"You divided by 4; now take the square root."}]} )]),()=>makeQuestion("A18","2M6","shared",[partA18("x","y=sqrt(x)+5","(y-5)^2",2,{partials:[{expr:"y-5",marks:1,message:"You isolated √x; now square both sides."}]} )]),()=>makeQuestion("A18","2M7","shared",[partA18("x","y=2*cbrt(x)","(y/2)^3",2,{partials:[{expr:"y/2",marks:1,message:"You divided by 2; now cube both sides."}]} )])],
+3:[()=>makeQuestion("A18","3M1","shared",[partA18("x","y=5*(x-2)+3","(y-3)/5+2",3,{partials:[{expr:"y-3",marks:1,message:"You undid the +3; next divide by 5."},{expr:"(y-3)/5",marks:2,message:"Now add 2 to finish."}]} )]),()=>makeQuestion("A18","3M2","shared",[partA18("b","A=1/2*(a+b)*h","2*A/h-a",3,{partials:[{expr:"2*A",marks:1,message:"You started by undoing the half; continue by dividing by h."},{expr:"2*A/h",marks:2,message:"Now subtract a to make b the subject."}]} )]),()=>makeQuestion("A18","3M3","shared",[partA18("q","P=3*(q+r)-4","(P+4)/3-r",3)]),()=>makeQuestion("A18","3M4","shared",[partA18("d","c=(d-5*e)/2+7","2*(c-7)+5*e",3)]),()=>makeQuestion("A18","3M5","shared",[partA18("x","y=3*x^2+12","sqrt((y-12)/3)",3,{extra:"where x is positive"})]),()=>makeQuestion("A18","3M6","shared",[partA18("x","y=2*sqrt(x)-7","((y+7)/2)^2",3)]),()=>makeQuestion("A18","3M7","shared",[partA18("x","y=2*x^3+5","cbrt((y-5)/2)",3)]),()=>makeQuestion("A18","3M8","shared",[partA18("x","y=4*cbrt(x)+5","((y-5)/4)^3",3)])],
+4:[()=>makeQuestion("A18","4M1","shared",[partA18("x","y=x+8","y-8",1),partA18("a","R=3*(a+2*b)-5","(R+5)/3-2*b",3)]),()=>makeQuestion("A18","4M2","shared",[partA18("t","w=2*t-7","(w+7)/2",2),partA18("b","A=1/2*b*h","2*A/h",2)]),()=>makeQuestion("A18","4M3","shared",[partA18("u","v=4*u+9","(v-9)/4",2),partA18("w","P=2*L+2*w","(P-2*L)/2",2)]),()=>makeQuestion("A18","4M4","shared",[partA18("m","n=m/3","3*n",1),partA18("q","N=6*(q-r)+s","(N-s)/6+r",3)]),()=>makeQuestion("A18","4M5","shared",[partA18("x","y=(x+4)/3","3*y-4",2),partA18("p","R=2*p-3*q","(R+3*q)/2",2)]),()=>makeQuestion("A18","4M6","shared",[partA18("x","y=x/5","5*y",1),partA18("m","T=3*sqrt(m)-8","((T+8)/3)^2",3)])],
+5:[()=>makeQuestion("A18","5M1","shared",[partA18("x","k=2*x-9","(k+9)/2",2),partA18("a","A=1/2*(a+b)*h","2*A/h-b",3)]),()=>makeQuestion("A18","5M2","shared",[partA18("n","y=n/4+6","4*(y-6)",2),partA18("x","y=4*(x+3)-7","(y+7)/4-3",3)]),()=>makeQuestion("A18","5M3","shared",[partA18("x","y=x-5","y+5",1),partA18("w","V=L*w*h","V/(L*h)",2),partA18("u","v=5*u-6","(v+6)/5",2)]),()=>makeQuestion("A18","5M4","shared",[partA18("n","y=2*n+7","(y-7)/2",2),partA18("r","Q=5*(r-2*s)+t","(Q-t)/5+2*s",3)]),()=>makeQuestion("A18","5M5","shared",[partA18("m","n=m+4","n-4",1),partA18("x","z=(x-y)/3","3*z+y",2),partA18("q","R=5*q-2*p","(R+2*p)/5",2)]),()=>makeQuestion("A18","5M6","shared",[partA18("n","y=n^3+4","cbrt(y-4)",2),partA18("x","A=2*x^2-6","sqrt((A+6)/2)",3,{extra:"where x is positive"})])]
+};
+function buildA18Question(marksTotal,paperMode,rng){const q=rng.choice(A18_BANK[marksTotal])();q.paperMode=paperMode;return q;}
+function buildQuestion(topicCode,marksTotal,paperMode,rng){if(topicCode==="A16")return buildA16Question(marksTotal,paperMode,rng);if(topicCode==="A17")return buildA17Question(marksTotal,paperMode,rng);return buildA18Question(marksTotal,paperMode,rng);}
+const topicSel=document.getElementById("topicSel"),marksSel=document.getElementById("marksSel"),calcSel=document.getElementById("calcSel"),preview=document.getElementById("preview"),fb=document.getElementById("fb"),regenBtn=document.getElementById("regenBtn"),checkBtn=document.getElementById("checkBtn"),revealBtn=document.getElementById("revealBtn");let currentQuestion=null;
+function initTopicDropdown(){topicSel.innerHTML=TOPICS.map(t=>`<option value="${t.code}">${t.code} — ${t.name}</option>`).join("");topicSel.value="A16";}
+function renderInput(part){const input=part.input;if(input.kind==="number")return`<input id="${input.id}" type="text" inputmode="decimal" placeholder="answer" />`;if(input.kind==="labelNumber")return`<div class="solutionboxes one"><span class="solutionbox"><span class="inputlabel">${escapeHtml(input.label)}</span><input id="${input.id}" class="solutioninput" type="text" inputmode="decimal" placeholder="value" /></span></div>`;if(input.kind==="pi")return`<span class="pirow"><input id="${input.id}" type="text" placeholder="answer in terms of π" /><button class="symbtn pibtn" type="button" data-target="${input.id}">π</button></span>`;if(input.kind==="coord")return`<div class="solutionboxes"><span class="solutionbox"><span class="inputlabel">${escapeHtml(input.xLabel||"x =")}</span><input id="${input.id}_x" class="solutioninput" type="text" inputmode="decimal" placeholder="value" /></span><span class="solutionbox"><span class="inputlabel">${escapeHtml(input.yLabel||"y =")}</span><input id="${input.id}_y" class="solutioninput" type="text" inputmode="decimal" placeholder="value" /></span></div>`;if(input.kind==="solution")return renderSolutionInputs(input.id,input.variable,input.roots);if(input.kind==="expr")return`<div class="exprwrap"><span class="inputlabel">${escapeHtml(input.subject)} =</span><div id="${input.id}" class="richinput" contenteditable="true" data-placeholder="expression"></div><div class="exprtools"><button class="ansbtn divbtn" type="button" data-target="${input.id}" title="Insert division symbol"><span class="ansbtn-div">÷</span></button><button class="ansbtn fracbtn" type="button" data-target="${input.id}" title="Insert fraction"><span class="ansbtn-frac"><span class="slot"></span><span class="fracline"></span><span class="slot"></span></span></button><button class="ansbtn powbtn" type="button" data-target="${input.id}" title="Insert power" aria-label="Insert power"><span class="ansbtn-pow">x<sup>□</sup></span></button></div></div>`;return`<input id="${input.id}" type="text" placeholder="answer" />`;}
+function renderQuestion(question){const topic=TOPICS.find(t=>t.code===question.topicCode);const multi=question.parts.length>1;if(question.graph){preview.innerHTML=`<div class="qpanel"><div class="qhead"><h3>${question.topicCode} — ${topic?topic.name:question.topicCode}<span class="badge">[${question.marksTotal} mark${question.marksTotal===1?"":"s"}]</span></h3>${paperTagHtml(question.paperMode)}</div><div class="qbody graph-layout"><div class="graphpanel">${makeSVG(question)}<div class="graphnote">Axes are labelled and scaled in whole-number units.</div></div><div class="partswrap"><div class="qintro">${question.introHtml||""}</div>${question.parts.map((part,idx)=>`<div class="item ${multi?"multi":"single"}">${multi?`<div class="parttop"><div class="partlabel">${letters(idx)}</div><div class="endmark">[${part.marks}]</div></div>`:""}<div class="itemmain"><div class="qtext">${part.promptHtml}</div><div class="answercol answerrow">${renderInput(part)}</div></div><div class="partfb" id="partfb_${idx}" aria-live="polite"></div></div>`).join("")}</div></div></div>`;}else{preview.innerHTML=`<div class="qpanel"><div class="qhead"><h3>${question.topicCode} — ${topic?topic.name:question.topicCode}<span class="badge">[${question.marksTotal} mark${question.marksTotal===1?"":"s"}]</span></h3>${paperTagHtml(question.paperMode)}</div><div class="qbody">${question.parts.map((part,idx)=>`<div class="item ${multi?"multi":"single"}">${multi?`<div class="parttop"><div class="partlabel">${letters(idx)}</div><div class="endmark">[${part.marks}]</div></div>`:""}<div class="itemmain"><div class="qtext">${part.promptHtml}</div><div class="answercol answerrow">${renderInput(part)}</div></div><div class="partfb" id="partfb_${idx}" aria-live="polite"></div></div>`).join("")}</div></div>`;}fb.style.display="none";fb.className="feedback";fb.innerHTML="";}
+function collectRaw(part){const input=part.input;if(input.kind==="number"||input.kind==="labelNumber"||input.kind==="pi"){const el=document.getElementById(input.id);return{raw:el?el.value:"",els:[el]};}if(input.kind==="coord"){const xEl=document.getElementById(input.id+"_x"),yEl=document.getElementById(input.id+"_y");return{raw:{x:xEl?xEl.value:"",y:yEl?yEl.value:""},els:[xEl,yEl]};}if(input.kind==="solution"){const sol=collectSolutionInputValues(input.id,input.roots);return{raw:sol.values,els:sol.els};}if(input.kind==="expr"){const el=document.getElementById(input.id);return{raw:getRichText(input.id),els:[el]};}const el=document.getElementById(input.id);return{raw:el?el.value:"",els:[el]};}
+function clearAllMarks(){preview.querySelectorAll("input,select,.richinput").forEach(el=>{el.classList.remove("ok","bad","partial-input");});preview.querySelectorAll(".partfb").forEach(box=>{box.className="partfb";box.innerHTML="";box.style.display="none";});}
+function setPartFeedback(index,result){const box=document.getElementById(`partfb_${index}`);if(!box)return;const cls=markClassFromMarks(result.marks,result.maxMarks);box.className=`partfb ${cls}`;box.style.display="block";const prefix=currentQuestion&&currentQuestion.parts.length>1?`<b>${letters(index)}</b> `:"";box.innerHTML=`${prefix}${result.marks}/${result.maxMarks} — ${escapeHtml(result.message)}`;}
+function markCurrent(){if(!currentQuestion)return;clearAllMarks();let total=0;currentQuestion.parts.forEach((part,idx)=>{const got=collectRaw(part);const result=part.mark(got.raw);total+=result.marks;highlightEls(got.els,markClassFromMarks(result.marks,result.maxMarks));setPartFeedback(idx,result);});const cls=markClassFromMarks(total,currentQuestion.marksTotal);fb.style.display="block";fb.className=`feedback ${cls}`;fb.innerHTML=`<b>Score:</b> ${total} / ${currentQuestion.marksTotal}`;}
+function revealCurrent(){if(!currentQuestion)return;markCurrent();fb.innerHTML+=`<div style="margin-top:.75rem"><b>Answers:</b></div><ol style="margin:.5rem 0 0 1.2rem">${currentQuestion.parts.map(part=>`<li>${part.revealHtml}</li>`).join("")}</ol>`;}
+function generateNew(){const rng=makeRng(cryptoSeed());currentQuestion=buildQuestion(topicSel.value,Number(marksSel.value),calcSel.value,rng);renderQuestion(currentQuestion);}
+function insertIntoInput(el,text){if(!el)return;const start=el.selectionStart??el.value.length,end=el.selectionEnd??el.value.length;el.value=el.value.slice(0,start)+text+el.value.slice(end);el.focus();el.selectionStart=el.selectionEnd=start+text.length;}
+function rangeInsideRoot(root,range){return!!(root&&range&&root.contains(range.startContainer)&&root.contains(range.endContainer));}
+function endRange(root){const range=document.createRange();range.selectNodeContents(root);range.collapse(false);return range;}
+function getStoredRange(root){const sel=window.getSelection();if(sel&&sel.rangeCount){const live=sel.getRangeAt(0);if(rangeInsideRoot(root,live))return live.cloneRange();}if(root&&root._savedRange&&rangeInsideRoot(root,root._savedRange))return root._savedRange.cloneRange();return endRange(root);}
+function setSelectionRange(range){const sel=window.getSelection();if(!sel||!range)return;sel.removeAllRanges();sel.addRange(range);}
+function syncRichEmpty(root){if(!root)return;root.dataset.empty=getRichText(root.id).trim()?"0":"1";}
+function insertNodeAtRoot(root,node){if(!root||!node)return;root.focus();let range=getStoredRange(root);if(!rangeInsideRoot(root,range))range=endRange(root);range.deleteContents();range.insertNode(node);const after=document.createRange();after.setStartAfter(node);after.collapse(true);setSelectionRange(after);root._savedRange=after.cloneRange();syncRichEmpty(root);}
+function insertTextAtRoot(root,text){if(!root)return;root.focus();let range=getStoredRange(root);if(!rangeInsideRoot(root,range))range=endRange(root);range.deleteContents();const node=document.createTextNode(text);range.insertNode(node);const after=document.createRange();after.setStart(node,String(node.nodeValue||"").length);after.collapse(true);setSelectionRange(after);root._savedRange=after.cloneRange();syncRichEmpty(root);}
+function autoSizeMiniField(field){if(!field)return;const len=Math.max(1,String(field.value||"").length);field.style.width=Math.max(8,Math.min(72,5+len*7))+"px";field.dataset.empty=String(field.value||"").length?"0":"1";}
+function focusFieldEnd(field){if(!field)return;field.focus();try{const pos=String(field.value||"").length;field.setSelectionRange(pos,pos);}catch(err){}autoSizeMiniField(field);}
+function rangeAfterNode(node){const range=document.createRange();range.setStartAfter(node);range.collapse(true);return range;}
+function exitInlineField(field,trailingText){const node=field.closest(".frac-node,.pow-node");const root=node?node.closest(".richinput"):null;if(!node||!root)return;root.focus();const after=rangeAfterNode(node);setSelectionRange(after);root._savedRange=after.cloneRange();if(trailingText)insertTextAtRoot(root,trailingText);else syncRichEmpty(root);}
+function attachMiniFieldHandlers(field){if(!field||field.dataset.hooked==="1")return;field.dataset.hooked="1";const sync=()=>{autoSizeMiniField(field);const root=field.closest(".richinput");if(root)syncRichEmpty(root);};field.addEventListener("input",sync);field.addEventListener("focus",sync);field.addEventListener("click",e=>{e.stopPropagation();sync();});field.addEventListener("mousedown",e=>e.stopPropagation());field.addEventListener("keydown",e=>{e.stopPropagation();const isNum=field.classList.contains("frac-num");const isDen=field.classList.contains("frac-den");const atEnd=(field.selectionStart??String(field.value||"").length)===(field.selectionEnd??String(field.value||"").length)&&(field.selectionEnd??String(field.value||"").length)===String(field.value||"").length;if((e.key==="/"||e.code==="NumpadDivide")&&isNum){e.preventDefault();focusFieldEnd(field.closest(".frac-node").querySelector(".frac-den"));return;}if((e.key==="Tab"||e.key==="ArrowDown")&&isNum&&atEnd){e.preventDefault();focusFieldEnd(field.closest(".frac-node").querySelector(".frac-den"));return;}if((e.key==="Tab"||e.key==="ArrowRight"||e.key===" "||e.code==="Space")&&atEnd){e.preventDefault();exitInlineField(field,"");return;}if(isDen&&["+","-","=","<",">",","].includes(e.key)&&atEnd){e.preventDefault();exitInlineField(field,e.key);return;}});sync();}
+function buildFractionNode(){const node=document.createElement("span");node.className="frac-node";node.contentEditable="false";const num=document.createElement("input");num.type="text";num.className="frac-field frac-num";num.autocomplete="off";num.spellcheck=false;num.setAttribute("aria-label","numerator");const bar=document.createElement("span");bar.className="frac-bar";const den=document.createElement("input");den.type="text";den.className="frac-field frac-den";den.autocomplete="off";den.spellcheck=false;den.setAttribute("aria-label","denominator");node.appendChild(num);node.appendChild(bar);node.appendChild(den);attachMiniFieldHandlers(num);attachMiniFieldHandlers(den);return node;}
+function buildPowerNode(){const node=document.createElement("span");node.className="pow-node";node.contentEditable="false";const exp=document.createElement("input");exp.type="text";exp.className="pow-field pow-exp";exp.autocomplete="off";exp.spellcheck=false;exp.setAttribute("aria-label","power");node.appendChild(exp);attachMiniFieldHandlers(exp);return node;}
+function insertFraction(targetId){const root=document.getElementById(targetId);if(!root)return;const node=buildFractionNode();insertNodeAtRoot(root,node);focusFieldEnd(node.querySelector(".frac-num"));}
+function insertPower(targetId){const root=document.getElementById(targetId);if(!root)return;const node=buildPowerNode();insertNodeAtRoot(root,node);focusFieldEnd(node.querySelector(".pow-exp"));}
+function insertDivision(targetId){const root=document.getElementById(targetId);if(!root)return;insertTextAtRoot(root,"÷");}
+document.addEventListener("selectionchange",()=>{const sel=window.getSelection();if(!sel||!sel.rangeCount)return;const range=sel.getRangeAt(0);const node=range.startContainer.nodeType===1?range.startContainer:range.startContainer.parentElement;const root=node&&node.closest?node.closest(".richinput"):null;if(root&&rangeInsideRoot(root,range))root._savedRange=range.cloneRange();});
+document.addEventListener("input",e=>{const root=e.target.closest&&e.target.closest(".richinput");if(root)syncRichEmpty(root);});
+document.addEventListener("click",e=>{const pi=e.target.closest(".pibtn");if(pi){insertIntoInput(document.getElementById(pi.dataset.target),"π");return;}const div=e.target.closest(".divbtn");if(div){e.preventDefault();insertDivision(div.dataset.target);return;}const fr=e.target.closest(".fracbtn");if(fr){e.preventDefault();insertFraction(fr.dataset.target);return;}const pw=e.target.closest(".powbtn");if(pw){e.preventDefault();insertPower(pw.dataset.target);return;}});
+
+/* USER_PATCH_A18_NESTED_ROOTS_FIX_JS_START */
+(function(){
+  function a18RawClean(raw){
+    return String(raw ?? "")
+      .replace(/<[^>]*>/g, "")
+      .replace(/[\u200B\uFEFF]/g, "")
+      .replace(/[−–—]/g, "-")
+      .replace(/²/g, "^2")
+      .replace(/³/g, "^3")
+      .replace(/÷/g, "/")
+      .replace(/×/g, "*")
+      .replace(/√\s*\(([^()]*)\)/g, "sqrt($1)")
+      .replace(/∛\s*\(([^()]*)\)/g, "cbrt($1)")
+      .replace(/√\s*([A-Za-z][A-Za-z0-9]*)/g, "sqrt($1)")
+      .replace(/∛\s*([A-Za-z][A-Za-z0-9]*)/g, "cbrt($1)")
+      .replace(/√/g, "sqrt")
+      .replace(/∛/g, "cbrt")
+      .replace(/π/g, "pi")
+      .replace(/\+\/-/g, "±")
+      .replace(/plusorminus/gi, "±")
+      .replace(/\s+/g, "");
+  }
+  function splitEquationA18(raw){
+    const s = String(raw ?? "").trim();
+    const idx = s.indexOf("=");
+    if(idx < 0) return null;
+    return {left:s.slice(0, idx), right:s.slice(idx + 1)};
+  }
+  function hasWholeParensA18(s){
+    s = String(s || "");
+    if(!(s.startsWith("(") && s.endsWith(")"))) return false;
+    let depth = 0;
+    for(let i=0;i<s.length;i++){
+      if(s[i] === "(") depth++;
+      else if(s[i] === ")"){
+        depth--;
+        if(depth === 0 && i < s.length - 1) return false;
+      }
+    }
+    return depth === 0;
+  }
+  function hasTopLevelAddSubA18(s){
+    let depth = 0;
+    for(let i=0;i<s.length;i++){
+      const ch = s[i];
+      if(ch === "(") depth++;
+      else if(ch === ")") depth = Math.max(0, depth - 1);
+      else if(depth === 0 && (ch === "+" || ch === "-")){
+        if(ch === "-" && (i === 0 || "+-*/^(,".includes(s[i-1]))) continue;
+        return true;
+      }
+    }
+    return false;
+  }
+  function topLevelLooseDivisionVariantsA18(s){
+    const variants = new Set();
+    let depth = 0;
+    for(let i=0;i<s.length;i++){
+      const ch = s[i];
+      if(ch === "(") depth++;
+      else if(ch === ")") depth = Math.max(0, depth - 1);
+      else if(depth === 0 && ch === "/"){
+        const left = s.slice(0, i);
+        if(left && hasTopLevelAddSubA18(left) && !hasWholeParensA18(left)){
+          variants.add("(" + left + ")" + s.slice(i));
+        }
+      }
+    }
+    return Array.from(variants);
+  }
+  function looseDivisionCandidatesA18(raw){
+    let s = a18RawClean(raw);
+    if(s.includes("=")) s = s.split("=").pop();
+    const out = new Set([String(raw ?? ""), s]);
+    topLevelLooseDivisionVariantsA18(s).forEach(v => out.add(v));
+    const stack = [];
+    const pairs = [];
+    for(let i=0;i<s.length;i++){
+      if(s[i] === "(") stack.push(i);
+      else if(s[i] === ")" && stack.length) pairs.push([stack.pop(), i]);
+    }
+    for(const [start, end] of pairs){
+      const inner = s.slice(start + 1, end);
+      topLevelLooseDivisionVariantsA18(inner).forEach(v => {
+        out.add(s.slice(0, start + 1) + v + s.slice(end));
+      });
+    }
+    return Array.from(out).filter(Boolean);
+  }
+  normaliseForEval = function(raw){
+    let s = a18RawClean(raw);
+    if(s.includes("=")) s = s.split("=").pop();
+    return s;
+  };
+  tokenizeExpr = function(raw){
+    const s = normaliseForEval(raw);
+    if(!s) return [];
+    const out = [];
+    let i = 0;
+    while(i < s.length){
+      if(s.slice(i, i+4).toLowerCase() === "sqrt"){
+        out.push({type:"func", value:"sqrt"}); i += 4; continue;
+      }
+      if(s.slice(i, i+4).toLowerCase() === "cbrt"){
+        out.push({type:"func", value:"cbrt"}); i += 4; continue;
+      }
+      const ch = s[i];
+      if(/[0-9.]/.test(ch)){
+        let j = i + 1;
+        while(j < s.length && /[0-9.]/.test(s[j])) j++;
+        out.push({type:"num", value:s.slice(i, j)}); i = j; continue;
+      }
+      if(/[A-Za-z]/.test(ch)){
+        out.push({type:"id", value:ch.toLowerCase()}); i++; continue;
+      }
+      if(ch === "("){ out.push({type:"lparen", value:ch}); i++; continue; }
+      if(ch === ")"){ out.push({type:"rparen", value:ch}); i++; continue; }
+      if("+-*/^".includes(ch)){ out.push({type:"op", value:ch}); i++; continue; }
+      return null;
+    }
+    return out;
+  };
+  exprToJs = function(raw){
+    const toks = tokenizeExpr(raw);
+    if(toks === null) return null;
+    const out = [];
+    const left = new Set(["num", "id", "rparen"]);
+    const right = new Set(["num", "id", "lparen", "func"]);
+    for(let i=0;i<toks.length;i++){
+      const prev = toks[i-1], cur = toks[i];
+      if(prev && left.has(prev.type) && right.has(cur.type)){
+        if(!(cur.type === "lparen" && prev.type === "func")) out.push("*");
+      }
+      out.push(cur.value);
+    }
+    return out.join("").replace(/\^/g, "**");
+  };
+  varsInExpr = function(raw){
+    const toks = tokenizeExpr(raw);
+    if(toks === null) return [];
+    return [...new Set(toks.filter(t => t.type === "id").map(t => t.value))].sort();
+  };
+  evalExpr = function(raw, assign){
+    const js = exprToJs(raw);
+    if(!js) return null;
+    const lowerAssign = {};
+    Object.keys(assign || {}).forEach(k => lowerAssign[String(k).toLowerCase()] = assign[k]);
+    const vars = Object.keys(lowerAssign);
+    const vals = vars.map(k => lowerAssign[k]);
+    try{
+      const f = Function("sqrt", "cbrt", ...vars, `"use strict"; return (${js});`);
+      const v = f(Math.sqrt, Math.cbrt, ...vals);
+      return Number.isFinite(v) ? v : null;
+    }catch(e){ return null; }
+  };
+  function exprEquivalentStrictA18(user, expected){
+    const u = normaliseForEval(user), e = normaliseForEval(expected);
+    if(!u || !e) return false;
+    const vars = [...new Set(varsInExpr(u).concat(varsInExpr(e)))];
+    const seeds = [[2,3,5,7,11,13],[-2,4,-5,6,-7,8],[1,2,3,4,5,6],[9,4,16,25,36,49],[5,-1,2,-3,7,-4],[3,8,27,2,6,10]];
+    let checked = 0;
+    const rootSensitive = /sqrt\s*\(/i.test(u) || /sqrt\s*\(/i.test(e);
+    for(const row of seeds){
+      const assign = {};
+      vars.forEach((v,i)=> assign[v] = row[i % row.length]);
+      const uv = evalExpr(u, assign), ev = evalExpr(e, assign);
+      if(uv === null || ev === null){
+        if(rootSensitive) continue;
+        return false;
+      }
+      checked += 1;
+      if(!close(uv, ev, Math.max(1e-8, Math.abs(ev) * 1e-8))) return false;
+    }
+    return checked > 0;
+  }
+  exprEquivalent = function(user, expected){
+    const uCandidates = looseDivisionCandidatesA18(user);
+    const eCandidates = looseDivisionCandidatesA18(expected);
+    for(const u of uCandidates){
+      for(const e of eCandidates){
+        if(exprEquivalentStrictA18(u, e)) return true;
+      }
+    }
+    return false;
+  };
+  pmEquivalent = function(raw, base){
+    const s0 = a18RawClean(raw).replace(/\+\/-/g, "±");
+    const split = splitEquationA18(raw);
+    const sides = s0.includes("=") && split ? [split.left, split.right] : [s0];
+    return sides.some(sideRaw => {
+      const s = a18RawClean(sideRaw);
+      if(s.startsWith("±")) return exprEquivalent(s.slice(1), base);
+      if(s.includes("±")) return exprEquivalent(s.replace("±", ""), base);
+      const parts = s.split(/,|or/i).filter(Boolean);
+      if(parts.length >= 2){
+        return parts.some(p => exprEquivalent(p, base)) && parts.some(p => exprEquivalent(p, `-(${base})`));
+      }
+      return false;
+    });
+  };
+  function sideIsSubjectA18(side, subject){
+    return normaliseForEval(side).toLowerCase() === String(subject || "").toLowerCase();
+  }
+  function sideMatchesA18(side, opts){
+    return opts.pm ? pmEquivalent(side, opts.pmBase) : exprEquivalent(side, opts.answer);
+  }
+  function fullEquationMatchesA18(raw, opts){
+    const split = splitEquationA18(raw);
+    if(!split) return false;
+    return (sideIsSubjectA18(split.left, opts.subject) && sideMatchesA18(split.right, opts))
+        || (sideIsSubjectA18(split.right, opts.subject) && sideMatchesA18(split.left, opts));
+  }
+  makeExprPart = function(opts){
+    return {
+      marks:opts.marks,
+      promptHtml:opts.promptHtml,
+      input:{kind:"expr", id:opts.id || `ex_${Math.random().toString(36).slice(2)}`, subject:opts.subject},
+      revealHtml:valueRevealHtml("Answer", mathHTML(`${opts.subject}=${opts.answer}`, "inline")),
+      mark(raw){
+        if(!String(raw ?? "").trim()) return {marks:0, maxMarks:opts.marks, message:"Enter the rearranged formula."};
+        if(!splitEquationA18(raw)) return {marks:0, maxMarks:opts.marks, message:"Type the full equation, including the equals sign."};
+        if(fullEquationMatchesA18(raw, opts)) return {marks:opts.marks, maxMarks:opts.marks, message:"Correct."};
+        const split = splitEquationA18(raw);
+        const answerSide = split && sideIsSubjectA18(split.left, opts.subject) ? split.right : (split && sideIsSubjectA18(split.right, opts.subject) ? split.left : "");
+        for(const p of(opts.partials || [])){
+          if(answerSide && exprEquivalent(answerSide, p.expr)) return {marks:Math.min(p.marks, opts.marks - 1), maxMarks:opts.marks, message:p.message};
+        }
+        return {marks:0, maxMarks:opts.marks, message:opts.message || "Check the inverse operations and the order of the rearrangement."};
+      }
+    };
+  };
+  a18Prompt = function(subject, formula, extra=""){
+    const extraText = extra ? `. ${escapeHtml(extra)}` : "";
+    return rawTextLine(`Make ${mathHTML(subject, "inline")} the subject of the formula${extraText}.`) + mathHTML(formula, "block");
+  };
+  partA18 = function(subject, formula, answer, marks, opts={}){
+    return makeExprPart({subject, marks, answer, promptHtml:a18Prompt(subject, formula, opts.extra || ""), pm:opts.pm, pmBase:opts.pmBase, partials:opts.partials || []});
+  };
+
+  const oldRenderInputA18 = renderInput;
+  renderInput = function(part){
+    const input = part && part.input;
+    if(input && input.kind === "expr"){
+      return `<div class="exprwrap"><div id="${input.id}" class="richinput" contenteditable="true" data-placeholder="type full equation"></div><div class="exprtools"><button class="ansbtn divbtn" type="button" data-target="${input.id}" title="Insert division symbol" aria-label="Insert division symbol"><span class="ansbtn-div">÷</span></button><button class="ansbtn fracbtn" type="button" data-target="${input.id}" title="Insert fraction" aria-label="Insert fraction"><span class="ansbtn-frac"><span class="slot"></span><span class="fracline"></span><span class="slot"></span></span></button><button class="ansbtn powbtn" type="button" data-target="${input.id}" title="Insert power" aria-label="Insert power"><span class="ansbtn-pow">x<sup>□</sup></span></button><button class="ansbtn ansbtn-root sqrtbtn" type="button" data-target="${input.id}" title="Insert square root" aria-label="Insert square root"><span class="root-icon"><span>√</span><span class="root-radicand">□</span></span></button><button class="ansbtn ansbtn-root cbrtbtn" type="button" data-target="${input.id}" title="Insert cube root" aria-label="Insert cube root"><span class="root-icon"><span class="root-index">3</span><span>√</span><span class="root-radicand">□</span></span></button></div></div>`;
+    }
+    return oldRenderInputA18(part);
+  };
+
+  let a18LastEditor = null;
+  function isA18Editor(el){
+    return !!(el && el.classList && (el.classList.contains("richinput") || el.classList.contains("root-radicand-editor")));
+  }
+  function closestA18Editor(node){
+    if(!node) return null;
+    const el = node.nodeType === 1 ? node : node.parentElement;
+    return el && el.closest ? el.closest(".root-radicand-editor,.richinput") : null;
+  }
+  function mainRichForA18(editor){
+    if(!editor) return null;
+    if(editor.classList && editor.classList.contains("richinput")) return editor;
+    return editor.closest ? editor.closest(".richinput") : null;
+  }
+  function editorMatchesTargetA18(editor, targetId){
+    if(!editor) return false;
+    if(!targetId) return true;
+    const main = mainRichForA18(editor);
+    return editor.id === targetId || (main && main.id === targetId);
+  }
+  function rememberA18Editor(editor){
+    if(!isA18Editor(editor)) return;
+    a18LastEditor = editor;
+    syncRichEmpty(editor);
+  }
+  function serializeA18Editor(editor){
+    let out = "";
+    if(!editor) return out;
+    Array.from(editor.childNodes || []).forEach(ch => out += serializeRichNode(ch));
+    return out;
+  }
+  serializeRichNode = function(node){
+    if(!node) return "";
+    if(node.nodeType === Node.TEXT_NODE) return node.textContent;
+    if(node.nodeType !== Node.ELEMENT_NODE) return "";
+    if(node.classList.contains("frac-node")){
+      const n = node.querySelector(".frac-num")?.value || "";
+      const d = node.querySelector(".frac-den")?.value || "";
+      return `((${n})/(${d}))`;
+    }
+    if(node.classList.contains("pow-node")){
+      const p = node.querySelector(".pow-exp")?.value || "";
+      return `^(${p})`;
+    }
+    if(node.classList.contains("root-node")){
+      const type = node.dataset.rootType === "cbrt" ? "cbrt" : "sqrt";
+      const editor = node.querySelector(".root-radicand-editor");
+      if(editor) return `${type}(${serializeA18Editor(editor)})`;
+      const oldField = node.querySelector(".root-field");
+      return `${type}(${oldField ? oldField.value || "" : ""})`;
+    }
+    if(node.classList.contains("root-radicand-editor")){
+      return serializeA18Editor(node);
+    }
+    if(node.tagName === "BR") return "";
+    let out = "";
+    node.childNodes.forEach(ch => out += serializeRichNode(ch));
+    return out;
+  };
+  getRichText = function(id){
+    const root = document.getElementById(id);
+    if(!root) return "";
+    return serializeA18Editor(root).trim();
+  };
+  syncRichEmpty = function(editor){
+    if(!editor) return;
+    if(isA18Editor(editor)){
+      editor.dataset.empty = serializeA18Editor(editor).trim() ? "0" : "1";
+      const main = mainRichForA18(editor);
+      if(main && main !== editor) main.dataset.empty = serializeA18Editor(main).trim() ? "0" : "1";
+      return;
+    }
+    if(editor.closest){
+      const host = closestA18Editor(editor);
+      if(host) syncRichEmpty(host);
+    }
+  };
+  function insertTextInA18Input(field, text){
+    if(!field) return;
+    const start = typeof field.selectionStart === "number" ? field.selectionStart : String(field.value || "").length;
+    const end = typeof field.selectionEnd === "number" ? field.selectionEnd : start;
+    field.value = String(field.value || "").slice(0, start) + text + String(field.value || "").slice(end);
+    const pos = start + String(text).length;
+    try{ field.setSelectionRange(pos, pos); }catch(e){}
+    field.dispatchEvent(new Event("input", {bubbles:true}));
+  }
+  function activeA18Target(targetId){
+    const active = document.activeElement;
+    if(active && active.classList && (active.classList.contains("frac-field") || active.classList.contains("pow-field") || active.classList.contains("root-field"))){
+      return active;
+    }
+    const sel = window.getSelection();
+    if(sel && sel.rangeCount){
+      const editor = closestA18Editor(sel.getRangeAt(0).startContainer);
+      if(editor && editorMatchesTargetA18(editor, targetId)) return editor;
+    }
+    if(active && active.closest){
+      const editor = active.closest(".root-radicand-editor,.richinput");
+      if(editor && editorMatchesTargetA18(editor, targetId)) return editor;
+    }
+    if(a18LastEditor && document.contains(a18LastEditor) && editorMatchesTargetA18(a18LastEditor, targetId)){
+      return a18LastEditor;
+    }
+    return document.getElementById(targetId);
+  }
+  function targetToA18Editor(target, targetId){
+    if(isA18Editor(target)) return target;
+    if(target && target.closest){
+      const editor = target.closest(".root-radicand-editor,.richinput");
+      if(editor && editorMatchesTargetA18(editor, targetId)) return editor;
+    }
+    return document.getElementById(targetId);
+  }
+  function attachA18EditorHandlers(editor){
+    if(!editor || editor.dataset.a18EditorHooked === "1") return;
+    editor.dataset.a18EditorHooked = "1";
+    editor.dataset.empty = serializeA18Editor(editor).trim() ? "0" : "1";
+    editor.spellcheck = false;
+    editor.addEventListener("input", () => { rememberA18Editor(editor); });
+    editor.addEventListener("focus", () => {
+      rememberA18Editor(editor);
+      const range = getStoredRange(editor);
+      if(rangeInsideRoot(editor, range)) editor._savedRange = range.cloneRange();
+    });
+    editor.addEventListener("click", () => {
+      rememberA18Editor(editor);
+      const range = getStoredRange(editor);
+      if(rangeInsideRoot(editor, range)) editor._savedRange = range.cloneRange();
+    });
+    editor.addEventListener("keyup", () => {
+      rememberA18Editor(editor);
+      const range = getStoredRange(editor);
+      if(rangeInsideRoot(editor, range)) editor._savedRange = range.cloneRange();
+    });
+    editor.addEventListener("keydown", e => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        return;
+      }
+    });
+    editor.addEventListener("paste", e => {
+      const clip = e.clipboardData || window.clipboardData;
+      const text = clip ? clip.getData("text") : "";
+      if(text){
+        e.preventDefault();
+        insertTextAtRoot(editor, text);
+      }
+    });
+  }
+  function exitMiniFieldA18(field, trailingText){
+    const node = field.closest(".frac-node,.pow-node,.root-node");
+    const editor = node ? closestA18Editor(node.parentNode) : null;
+    if(!node || !editor) return;
+    editor.focus();
+    const after = rangeAfterNode(node);
+    setSelectionRange(after);
+    editor._savedRange = after.cloneRange();
+    rememberA18Editor(editor);
+    if(trailingText) insertTextAtRoot(editor, trailingText);
+    else syncRichEmpty(editor);
+  }
+  exitInlineField = exitMiniFieldA18;
+  attachMiniFieldHandlers = function(field){
+    if(!field || field.dataset.a18NestedHooked === "1") return;
+    field.dataset.a18NestedHooked = "1";
+    field.dataset.hooked = "1";
+    const sync = () => {
+      autoSizeMiniField(field);
+      const editor = closestA18Editor(field);
+      if(editor) syncRichEmpty(editor);
+    };
+    field.addEventListener("input", sync);
+    field.addEventListener("focus", sync);
+    field.addEventListener("click", e => { e.stopPropagation(); sync(); });
+    field.addEventListener("mousedown", e => e.stopPropagation());
+    field.addEventListener("keydown", e => {
+      e.stopPropagation();
+      const isNum = field.classList.contains("frac-num");
+      const isDen = field.classList.contains("frac-den");
+      const value = String(field.value || "");
+      const start = typeof field.selectionStart === "number" ? field.selectionStart : value.length;
+      const end = typeof field.selectionEnd === "number" ? field.selectionEnd : start;
+      const atEnd = start === end && end === value.length;
+      if((e.key === "/" || e.code === "NumpadDivide") && isNum){
+        e.preventDefault();
+        const den = field.closest(".frac-node") && field.closest(".frac-node").querySelector(".frac-den");
+        focusFieldEnd(den);
+        return;
+      }
+      if((e.key === "Tab" || e.key === "ArrowDown") && isNum && atEnd){
+        e.preventDefault();
+        const den = field.closest(".frac-node") && field.closest(".frac-node").querySelector(".frac-den");
+        focusFieldEnd(den);
+        return;
+      }
+      if((e.key === "Tab" || e.key === "ArrowRight" || e.key === " " || e.code === "Space") && atEnd){
+        e.preventDefault();
+        exitMiniFieldA18(field, "");
+        return;
+      }
+      if(isDen && ["+","-","=","<",">",","].includes(e.key) && atEnd){
+        e.preventDefault();
+        exitMiniFieldA18(field, e.key);
+        return;
+      }
+    });
+    sync();
+  };
+  function buildRootNodeA18(kind){
+    const node = document.createElement("span");
+    node.className = "root-node";
+    node.contentEditable = "false";
+    node.dataset.rootType = kind;
+    if(kind === "cbrt"){
+      const idx = document.createElement("span");
+      idx.className = "root-index";
+      idx.textContent = "3";
+      node.appendChild(idx);
+    }
+    const symbol = document.createElement("span");
+    symbol.className = "root-symbol";
+    symbol.setAttribute("aria-hidden", "true");
+    symbol.innerHTML = `<svg viewBox="0 0 34 56" preserveAspectRatio="none" focusable="false"><path d="M2 34 L8 34 L14 52 L24 1 L34 1"></path></svg>`;
+    const radicand = document.createElement("span");
+    radicand.className = "root-radicand-editor";
+    radicand.contentEditable = "true";
+    radicand.tabIndex = 0;
+    radicand.dataset.empty = "1";
+    radicand.dataset.placeholder = "";
+    radicand.setAttribute("role", "textbox");
+    radicand.setAttribute("aria-label", kind === "cbrt" ? "cube root radicand" : "square root radicand");
+    attachA18EditorHandlers(radicand);
+    node.appendChild(symbol);
+    node.appendChild(radicand);
+    return node;
+  }
+  function focusEditorEndA18(editor){
+    if(!editor) return;
+    editor.focus();
+    const range = endRange(editor);
+    setSelectionRange(range);
+    editor._savedRange = range.cloneRange();
+    rememberA18Editor(editor);
+  }
+  insertFraction = function(targetId){
+    let target = activeA18Target(targetId);
+    let editor = targetToA18Editor(target, targetId);
+    if(!editor) return;
+    const node = buildFractionNode();
+    insertNodeAtRoot(editor, node);
+    rememberA18Editor(editor);
+    focusFieldEnd(node.querySelector(".frac-num"));
+  };
+  insertPower = function(targetId){
+    let target = activeA18Target(targetId);
+    let editor = targetToA18Editor(target, targetId);
+    if(!editor) return;
+    const node = buildPowerNode();
+    insertNodeAtRoot(editor, node);
+    rememberA18Editor(editor);
+    focusFieldEnd(node.querySelector(".pow-exp"));
+  };
+  insertDivision = function(targetId){
+    const target = activeA18Target(targetId);
+    if(target && target.tagName === "INPUT"){
+      insertTextInA18Input(target, "÷");
+      return;
+    }
+    const editor = targetToA18Editor(target, targetId);
+    if(!editor) return;
+    insertTextAtRoot(editor, "÷");
+    rememberA18Editor(editor);
+  };
+  function insertRootA18(targetId, kind){
+    let target = activeA18Target(targetId);
+    let editor = targetToA18Editor(target, targetId);
+    if(!editor) return;
+    const node = buildRootNodeA18(kind);
+    insertNodeAtRoot(editor, node);
+    const radicand = node.querySelector(".root-radicand-editor");
+    focusEditorEndA18(radicand);
+  }
+  document.addEventListener("selectionchange", () => {
+    const sel = window.getSelection();
+    if(!sel || !sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    const editor = closestA18Editor(range.startContainer);
+    if(editor && rangeInsideRoot(editor, range)){
+      editor._savedRange = range.cloneRange();
+      rememberA18Editor(editor);
+    }
+  });
+  document.addEventListener("focusin", e => {
+    const editor = closestA18Editor(e.target);
+    if(editor) rememberA18Editor(editor);
+  });
+  document.addEventListener("click", function(e){
+    const sq = e.target.closest && e.target.closest(".sqrtbtn");
+    if(sq){ e.preventDefault(); insertRootA18(sq.dataset.target, "sqrt"); return; }
+    const cb = e.target.closest && e.target.closest(".cbrtbtn");
+    if(cb){ e.preventDefault(); insertRootA18(cb.dataset.target, "cbrt"); return; }
+  });
+  const oldRenderQuestionA18Nested = renderQuestion;
+  renderQuestion = function(question){
+    oldRenderQuestionA18Nested(question);
+    document.querySelectorAll(".richinput,.root-radicand-editor").forEach(attachA18EditorHandlers);
+  };
+})();
+/* USER_PATCH_A18_NESTED_ROOTS_FIX_JS_END */
+
+regenBtn.addEventListener("click",generateNew);checkBtn.addEventListener("click",markCurrent);revealBtn.addEventListener("click",revealCurrent);topicSel.addEventListener("change",generateNew);marksSel.addEventListener("change",generateNew);calcSel.addEventListener("change",generateNew);initTopicDropdown();generateNew();
+</script>
+
+<script>
+(function(){
+  const style = document.createElement('style');
+  style.textContent = `
+.unitwrap{display:inline-flex;align-items:center;gap:.38rem;flex-wrap:nowrap}
+.unitwrap.unit-left{gap:.28rem}
+.unitlabel{font-weight:900;white-space:nowrap;color:#111827;font-size:.98rem}
+.unitfield{min-width:170px}
+`;
+  document.head.appendChild(style);
+
+  function a17Round2(x){ return Math.round((Number(x) + Number.EPSILON) * 100) / 100; }
+  function a17IsInt(x){ return close(Number(x), Math.round(Number(x)), 1e-9); }
+  function a17UnitSide(unit){ return String(unit || '').trim().startsWith('£') ? 'left' : 'right'; }
+  function a17Fmt(n, dp2){ return dp2 ? fmt2(a17Round2(n)) : fmt(n); }
+  function a17VarDesc(sym, desc){ return `${mathHTML(sym,'inline')} is ${escapeHtml(desc)}`; }
+  function a17Prompt(formula, descs, vals, tail, roundText){
+    let html = textLine('Use the formula') + mathHTML(formula, 'block');
+    if(descs && descs.length) html += rawTextLine(descs.join(', ') + '.');
+    if(vals && vals.length){
+      const chunks = vals.map(v => `${mathHTML(`${v[0]}=${a17Fmt(v[1], false)}`,'inline')}${v[2] ? ' ' + escapeHtml(v[2]) : ''}`);
+      html += rawTextLine(`When ${chunks.join(' and ')}, ${escapeHtml(tail || '')}`);
+    }else if(tail){
+      html += textLine(tail);
+    }
+    if(roundText) html += textLine(roundText);
+    return html;
+  }
+  function a17NumberPart(prompt, expected, marks, unit, dp2, partials, message){
+    const p = makeNumberPart({
+      marks:marks,
+      promptHtml:prompt,
+      expected:expected,
+      unit:unit || '',
+      dp2:!!dp2,
+      revealHtml:dp2 ? numberReveal2('Answer', expected, unit || '') : numberReveal('Answer', expected, unit || ''),
+      partialRules:partials || [],
+      message:message || 'Check the formula substitution and arithmetic.'
+    });
+    p.input.unitText = unit || '';
+    p.input.unitSide = a17UnitSide(unit || '');
+    if(p.input.kind === 'number') p.input.inputClass = 'unitfield';
+    return p;
+  }
+  function a17PiPart(prompt, coeff, marks, unit, partials){
+    const p = makePiPart({marks:marks,promptHtml:prompt,coeff:coeff,unit:unit || '',partialRules:partials || []});
+    p.input.unitText = unit || '';
+    p.input.unitSide = a17UnitSide(unit || '');
+    return p;
+  }
+
+  const prevRenderInputPatch = renderInput;
+  renderInput = function(part){
+    const input = part && part.input ? part.input : {};
+    if((input.kind === 'number' || input.kind === 'labelNumber') && input.unitText){
+      const extraClass = input.inputClass ? ` class="${escapeAttr(input.inputClass)}"` : '';
+      const numberField = `<input id="${input.id}"${extraClass} type="text" inputmode="decimal" placeholder="answer" />`;
+      if(input.kind === 'number'){
+        return input.unitSide === 'left'
+          ? `<span class="unitwrap unit-left"><span class="unitlabel">${escapeHtml(input.unitText)}</span>${numberField}</span>`
+          : `<span class="unitwrap">${numberField}<span class="unitlabel">${escapeHtml(input.unitText)}</span></span>`;
+      }
+      const labelledField = `<div class="solutionboxes one"><span class="solutionbox"><span class="inputlabel">${escapeHtml(input.label || '')}</span><input id="${input.id}" class="solutioninput" type="text" inputmode="decimal" placeholder="value" /></span></div>`;
+      return input.unitSide === 'left'
+        ? `<span class="unitwrap unit-left"><span class="unitlabel">${escapeHtml(input.unitText)}</span>${labelledField}</span>`
+        : `<span class="unitwrap">${labelledField}<span class="unitlabel">${escapeHtml(input.unitText)}</span></span>`;
+    }
+    if(input.kind === 'pi' && input.unitText){
+      const core = `<span class="pirow"><input id="${input.id}" type="text" placeholder="answer in terms of π" /><button class="symbtn pibtn" type="button" data-target="${input.id}">π</button></span>`;
+      return input.unitSide === 'left'
+        ? `<span class="unitwrap unit-left"><span class="unitlabel">${escapeHtml(input.unitText)}</span>${core}</span>`
+        : `<span class="unitwrap">${core}<span class="unitlabel">${escapeHtml(input.unitText)}</span></span>`;
+    }
+    return prevRenderInputPatch(part);
+  };
+
+  function a17DecPool(min,max){
+    const pool=[1.2,1.5,1.8,2.4,2.5,2.8,3.2,3.5,3.6,4.2,4.5,4.8,5.2,5.5,5.7,6.4,6.5,6.8,7.2,7.5,7.8,8.4,8.5,8.9,9.6,10.5,11.4,12.6,14.4,15.6,16.8,18.0];
+    return pool.filter(v => v >= min && v <= max);
+  }
+  function a17PickDec(rng,min,max){
+    const pool = a17DecPool(min,max);
+    return rng.choice(pool.length ? pool : [min]);
+  }
+  function a17IntDivQuestion(rng, topMin, topMax, divMin, divMax){
+    const ans = rng.int(2, Math.max(3, Math.floor(topMax/divMin)));
+    const divisor = rng.int(divMin, divMax);
+    return {ans, divisor, top: ans * divisor};
+  }
+
+  function a17SpeedPart(rng, calc, marks){
+    const systems = [
+      {dist:'km', time:'hours', speed:'km/h'},
+      {dist:'miles', time:'hours', speed:'miles/h'},
+      {dist:'m', time:'seconds', speed:'m/s'}
+    ];
+    const sys = rng.choice(systems);
+    const target = rng.choice(['s','d','t']);
+    let d, t, s, dp2=false;
+    if(calc){
+      if(target === 's'){
+        d = a17PickDec(rng, 20, 120);
+        t = a17PickDec(rng, 1.2, 6.5);
+        s = d / t;
+      }else if(target === 'd'){
+        s = a17PickDec(rng, 10, 40);
+        t = a17PickDec(rng, 1.2, 6.5);
+        d = s * t;
+      }else{
+        d = a17PickDec(rng, 20, 120);
+        s = a17PickDec(rng, 10, 40);
+        t = d / s;
+      }
+      dp2 = !a17IsInt(target === 's' ? s : target === 'd' ? d : t);
+      d = a17Round2(d); t = a17Round2(t); s = a17Round2(s);
+    }else{
+      if(target === 's'){
+        const q = a17IntDivQuestion(rng, 20, 120, 2, 8); d = q.top; t = q.divisor; s = q.ans;
+      }else if(target === 'd'){
+        s = rng.int(2, 20); t = rng.int(2, 8); d = s * t;
+      }else{
+        const q = a17IntDivQuestion(rng, 20, 120, 2, 20); d = q.top; s = q.divisor; t = q.ans;
+      }
+    }
+    const prompt = a17Prompt('s=d/t', [a17VarDesc('s','speed'), a17VarDesc('d','distance'), a17VarDesc('t','time')],
+      target === 's' ? [['d', d, sys.dist], ['t', t, sys.time]]
+      : target === 'd' ? [['s', s, sys.speed], ['t', t, sys.time]]
+      : [['d', d, sys.dist], ['s', s, sys.speed]],
+      `find ${target}.`,
+      calc && dp2 ? 'Give your answer to 2 decimal places.' : ''
+    );
+    const expected = target === 's' ? d/t : target === 'd' ? s*t : d/s;
+    const partials = target === 's'
+      ? [{value:d*t, marks:1, message:'You multiplied instead of dividing by time.'},{value:t/d, marks:1, message:'Check the order of the division.'}]
+      : target === 'd'
+      ? [{value:s/t, marks:1, message:'Distance is speed multiplied by time.'},{value:t/s, marks:1, message:'Check the formula you used.'}]
+      : [{value:d*t, marks:1, message:'Time is distance divided by speed, not multiplied.'},{value:s/d, marks:1, message:'Check the order of the division.'}];
+    const unit = target === 's' ? sys.speed : target === 'd' ? sys.dist : sys.time;
+    return a17NumberPart(prompt, expected, marks, unit, calc && dp2, partials, 'Check the speed formula and the units.');
+  }
+
+  function a17DensityPart(rng, calc, marks){
+    const systems = [
+      {mass:'kg', vol:'m³', dens:'kg/m³'},
+      {mass:'g', vol:'cm³', dens:'g/cm³'}
+    ];
+    const sys = rng.choice(systems);
+    const target = rng.choice(['rho','m','V']);
+    let rho, m, V, dp2=false;
+    if(calc){
+      if(target === 'rho'){
+        m = a17PickDec(rng, 10, 90); V = a17PickDec(rng, 1.2, 9.5); rho = m / V;
+      }else if(target === 'm'){
+        rho = a17PickDec(rng, 1.2, 9.5); V = a17PickDec(rng, 1.2, 9.5); m = rho * V;
+      }else{
+        m = a17PickDec(rng, 10, 90); rho = a17PickDec(rng, 1.2, 9.5); V = m / rho;
+      }
+      dp2 = !a17IsInt(target === 'rho' ? rho : target === 'm' ? m : V);
+      rho = a17Round2(rho); m = a17Round2(m); V = a17Round2(V);
+    }else{
+      if(target === 'rho'){
+        const q = a17IntDivQuestion(rng, 12, 96, 2, 8); m = q.top; V = q.divisor; rho = q.ans;
+      }else if(target === 'm'){
+        rho = rng.int(2, 12); V = rng.int(2, 8); m = rho * V;
+      }else{
+        const q = a17IntDivQuestion(rng, 12, 96, 2, 12); m = q.top; rho = q.divisor; V = q.ans;
+      }
+    }
+    const prompt = a17Prompt('rho=m/V', [a17VarDesc('ρ','density'), a17VarDesc('m','mass'), a17VarDesc('V','volume')],
+      target === 'rho' ? [['m', m, sys.mass], ['V', V, sys.vol]]
+      : target === 'm' ? [['rho', rho, sys.dens], ['V', V, sys.vol]]
+      : [['m', m, sys.mass], ['rho', rho, sys.dens]],
+      `find ${target === 'rho' ? 'ρ' : target}.`,
+      calc && dp2 ? 'Give your answer to 2 decimal places.' : ''
+    );
+    const expected = target === 'rho' ? m/V : target === 'm' ? rho*V : m/rho;
+    const partials = target === 'rho'
+      ? [{value:m*V, marks:1, message:'Density is mass divided by volume.'},{value:V/m, marks:1, message:'Check the order of the division.'}]
+      : target === 'm'
+      ? [{value:rho/V, marks:1, message:'Mass is density multiplied by volume.'},{value:V/rho, marks:1, message:'Check the formula.'}]
+      : [{value:m*rho, marks:1, message:'Volume is mass divided by density.'},{value:rho/m, marks:1, message:'Check the order of the division.'}];
+    const unit = target === 'rho' ? sys.dens : target === 'm' ? sys.mass : sys.vol;
+    return a17NumberPart(prompt, expected, marks, unit, calc && dp2, partials, 'Check the density formula and the units.');
+  }
+
+  function a17PressurePart(rng, calc, marks){
+    const unitSys = rng.choice([{area:'m²', press:'N/m²'},{area:'cm²', press:'N/cm²'}]);
+    const target = rng.choice(['P','F','A']);
+    let P, F, A, dp2=false;
+    if(calc){
+      if(target === 'P'){ F = a17PickDec(rng, 20, 120); A = a17PickDec(rng, 1.2, 9.5); P = F / A; }
+      else if(target === 'F'){ P = a17PickDec(rng, 1.2, 9.5); A = a17PickDec(rng, 1.2, 9.5); F = P * A; }
+      else { F = a17PickDec(rng, 20, 120); P = a17PickDec(rng, 1.2, 9.5); A = F / P; }
+      dp2 = !a17IsInt(target === 'P' ? P : target === 'F' ? F : A);
+      P = a17Round2(P); F = a17Round2(F); A = a17Round2(A);
+    }else{
+      if(target === 'P'){ const q = a17IntDivQuestion(rng, 20, 120, 2, 8); F = q.top; A = q.divisor; P = q.ans; }
+      else if(target === 'F'){ P = rng.int(2, 12); A = rng.int(2, 8); F = P * A; }
+      else { const q = a17IntDivQuestion(rng, 20, 120, 2, 12); F = q.top; P = q.divisor; A = q.ans; }
+    }
+    const prompt = a17Prompt('P=F/A', [a17VarDesc('P','pressure'), a17VarDesc('F','force'), a17VarDesc('A','area')],
+      target === 'P' ? [['F', F, 'newtons'], ['A', A, unitSys.area]]
+      : target === 'F' ? [['P', P, unitSys.press], ['A', A, unitSys.area]]
+      : [['F', F, 'newtons'], ['P', P, unitSys.press]],
+      `find ${target}.`,
+      calc && dp2 ? 'Give your answer to 2 decimal places.' : ''
+    );
+    const expected = target === 'P' ? F/A : target === 'F' ? P*A : F/P;
+    const partials = target === 'P'
+      ? [{value:F*A, marks:1, message:'Pressure is force divided by area.'},{value:A/F, marks:1, message:'Check the order of the division.'}]
+      : target === 'F'
+      ? [{value:P/A, marks:1, message:'Force is pressure multiplied by area.'},{value:A/P, marks:1, message:'Check the formula.'}]
+      : [{value:F*P, marks:1, message:'Area is force divided by pressure.'},{value:P/F, marks:1, message:'Check the order of the division.'}];
+    const unit = target === 'P' ? unitSys.press : target === 'F' ? 'newtons' : unitSys.area;
+    return a17NumberPart(prompt, expected, marks, unit, calc && dp2, partials, 'Check the pressure formula and the units.');
+  }
+
+  function a17ForcePart(rng, calc, marks){
+    const target = rng.choice(['F','m','a']);
+    let F, m, a, dp2=false;
+    if(calc){
+      if(target === 'F'){ m = a17PickDec(rng, 2, 9); a = a17PickDec(rng, 1.2, 6); F = m*a; }
+      else if(target === 'm'){ F = a17PickDec(rng, 20, 90); a = a17PickDec(rng, 1.2, 6); m = F/a; }
+      else { F = a17PickDec(rng, 20, 90); m = a17PickDec(rng, 2, 9); a = F/m; }
+      dp2 = !a17IsInt(target === 'F' ? F : target === 'm' ? m : a);
+      F = a17Round2(F); m = a17Round2(m); a = a17Round2(a);
+    }else{
+      if(target === 'F'){ m = rng.int(2,9); a = rng.int(2,6); F = m*a; }
+      else if(target === 'm'){ const q = a17IntDivQuestion(rng, 18, 96, 2, 8); F = q.top; a = q.divisor; m = q.ans; }
+      else { const q = a17IntDivQuestion(rng, 18, 96, 2, 9); F = q.top; m = q.divisor; a = q.ans; }
+    }
+    const prompt = a17Prompt('F=m*a', [a17VarDesc('F','force'), a17VarDesc('m','mass'), a17VarDesc('a','acceleration')],
+      target === 'F' ? [['m', m, 'kilograms'], ['a', a, 'metres per second squared']]
+      : target === 'm' ? [['F', F, 'newtons'], ['a', a, 'metres per second squared']]
+      : [['F', F, 'newtons'], ['m', m, 'kilograms']],
+      `find ${target}.`,
+      calc && dp2 ? 'Give your answer to 2 decimal places.' : ''
+    );
+    const expected = target === 'F' ? m*a : target === 'm' ? F/a : F/m;
+    const partials = target === 'F'
+      ? [{value:m/a, marks:1, message:'Force is mass multiplied by acceleration.'}]
+      : target === 'm'
+      ? [{value:F*a, marks:1, message:'Mass is force divided by acceleration.'},{value:a/F, marks:1, message:'Check the order of the division.'}]
+      : [{value:F*a, marks:1, message:'Acceleration is force divided by mass.'},{value:m/F, marks:1, message:'Check the order of the division.'}];
+    const unit = target === 'F' ? 'newtons' : target === 'm' ? 'kilograms' : 'metres per second squared';
+    return a17NumberPart(prompt, expected, marks, unit, calc && dp2, partials, 'Check the force formula and the units.');
+  }
+
+  function a17SquarePart(rng, calc, marks){
+    const x = calc ? a17PickDec(rng, 1.5, 8.5) : rng.int(2, 12);
+    const A = x*x;
+    const askSide = marks > 1 || rng.float() < 0.6;
+    if(!askSide){
+      return a17NumberPart(a17Prompt('A=x^2', [], [['x', x, 'cm']], 'find A in cm².', calc && !a17IsInt(A) ? 'Give your answer to 2 decimal places.' : ''), A, marks, 'cm²', calc && !a17IsInt(A), [], 'Check the square calculation.');
+    }
+    return a17NumberPart(a17Prompt('A=x^2', [], [['A', A, 'cm²']], 'x is a side length. Find x in cm.', calc && !a17IsInt(x) ? 'Give your answer to 2 decimal places.' : ''), x, marks, 'cm', calc && !a17IsInt(x), [{value:A, marks:Math.max(1, marks-1), message:'You need the square root of the area to find the side length.'}], 'Use the square root to find the side length.');
+  }
+
+  function a17CubePart(rng, calc, marks){
+    const x = calc ? rng.choice([1.5,2.5,3.5,4.5,5.5,6.5]) : rng.int(2, 9);
+    const V = x*x*x;
+    const askEdge = marks > 1 || rng.float() < 0.6;
+    if(!askEdge){
+      return a17NumberPart(a17Prompt('V=x^3', [], [['x', x, 'cm']], 'x is an edge length. Find V in cm³.', calc && !a17IsInt(V) ? 'Give your answer to 2 decimal places.' : ''), V, marks, 'cm³', calc && !a17IsInt(V), [], 'Check the cube calculation.');
+    }
+    return a17NumberPart(a17Prompt('V=x^3', [], [['V', V, 'cm³']], 'x is an edge length. Find x in cm.', calc && !a17IsInt(x) ? 'Give your answer to 2 decimal places.' : ''), x, marks, 'cm', calc && !a17IsInt(x), [{value:Math.abs(x), marks:Math.max(1, marks-1), message:'The cube root magnitude is correct. Check the sign if needed.'}], 'Use the cube root to find the edge length.');
+  }
+
+  function a17RectanglePart(rng, calc, marks){
+    if(marks <= 1){
+      const L = calc ? a17PickDec(rng, 4, 13) : rng.int(4, 14);
+      const w = calc ? a17PickDec(rng, 2, 8) : rng.int(2, 9);
+      const A = L*w;
+      return a17NumberPart(a17Prompt('A=L*w', [], [['L', L, 'cm'], ['w', w, 'cm']], 'find A in cm².', calc && !a17IsInt(A) ? 'Give your answer to 2 decimal places.' : ''), A, marks, 'cm²', calc && !a17IsInt(A), [], 'Check the rectangle area formula.');
+    }
+    const L = calc ? a17PickDec(rng, 4, 10) : rng.int(4, 10);
+    const w = calc ? a17PickDec(rng, 3, 8) : rng.int(3, 8);
+    const P = 2*L + 2*w;
+    const ask = rng.choice(['L','w']);
+    const givenLabel = ask === 'L' ? 'w' : 'L';
+    const givenValue = ask === 'L' ? w : L;
+    const expected = ask === 'L' ? L : w;
+    const prompt = a17Prompt('P=2*L+2*w', [], [['P', P, 'cm'], [givenLabel, givenValue, 'cm']], `find ${ask} in cm.`, calc && !a17IsInt(expected) ? 'Give your answer to 2 decimal places.' : '');
+    const partials = [{value:P - 2*givenValue, marks:1, message:`You subtracted 2${givenLabel} correctly. Now divide by 2.`},{value:P/2 - givenValue, marks:Math.min(2, marks-1), message:'Correct method. Check the arithmetic.'}];
+    return a17NumberPart(prompt, expected, marks, 'cm', calc && !a17IsInt(expected), partials, 'Check the perimeter formula and the rearrangement.');
+  }
+
+  function a17TrianglePart(rng, calc, marks){
+    let b = calc ? a17PickDec(rng, 4, 10) : rng.int(4, 12);
+    let h = calc ? a17PickDec(rng, 5, 12) : rng.int(5, 14);
+    if(!calc && ((b*h) % 2 !== 0)) h += 1;
+    const A = 0.5*b*h;
+    const ask = rng.choice(['A','b','h']);
+    if(ask === 'A'){
+      return a17NumberPart(a17Prompt('A=1/2*b*h', [a17VarDesc('b','base'), a17VarDesc('h','perpendicular height')], [['b', b, 'cm'], ['h', h, 'cm']], 'find A in cm².', calc && !a17IsInt(A) ? 'Give your answer to 2 decimal places.' : ''), A, marks, 'cm²', calc && !a17IsInt(A), [{value:b*h, marks:1, message:'Remember to multiply by one half.'}], 'Check the triangle area formula.');
+    }
+    const prompt = ask === 'b'
+      ? a17Prompt('A=1/2*b*h', [a17VarDesc('b','base'), a17VarDesc('h','perpendicular height')], [['A', A, 'cm²'], ['h', h, 'cm']], 'find b in cm.', calc && !a17IsInt(b) ? 'Give your answer to 2 decimal places.' : '')
+      : a17Prompt('A=1/2*b*h', [a17VarDesc('b','base'), a17VarDesc('h','perpendicular height')], [['A', A, 'cm²'], ['b', b, 'cm']], 'find h in cm.', calc && !a17IsInt(h) ? 'Give your answer to 2 decimal places.' : '');
+    const expected = ask === 'b' ? b : h;
+    const divisor = ask === 'b' ? h : b;
+    return a17NumberPart(prompt, expected, marks, 'cm', calc && !a17IsInt(expected), [{value:A/divisor, marks:1, message:'Undo the one half by multiplying by 2.'},{value:2*A/divisor, marks:Math.min(2, marks-1), message:'Correct method. Check the arithmetic.'}], 'Check the rearrangement of the triangle area formula.');
+  }
+
+  function a17TrapeziumPart(rng, calc, marks){
+    let a = calc ? a17PickDec(rng, 3, 8) : rng.int(3, 9);
+    let b = calc ? a17PickDec(rng, 7, 12) : rng.int(8, 14);
+    let h = calc ? a17PickDec(rng, 3, 6) : rng.int(3, 8);
+    if(!calc && (((a+b)*h) % 2 !== 0)) h += 1;
+    const A = 0.5*(a+b)*h;
+    const ask = rng.choice(['A','b','h']);
+    if(ask === 'A'){
+      return a17NumberPart(a17Prompt('A=1/2*(a+b)*h', [a17VarDesc('a','one parallel side'), a17VarDesc('b','the other parallel side'), a17VarDesc('h','perpendicular height')], [['a', a, 'cm'], ['b', b, 'cm'], ['h', h, 'cm']], 'find A in cm².', calc && !a17IsInt(A) ? 'Give your answer to 2 decimal places.' : ''), A, marks, 'cm²', calc && !a17IsInt(A), [{value:(a+b)*h, marks:1, message:'Remember to multiply by one half.'}], 'Check the trapezium area formula.');
+    }
+    const prompt = ask === 'b'
+      ? a17Prompt('A=1/2*(a+b)*h', [a17VarDesc('a','one parallel side'), a17VarDesc('b','the other parallel side'), a17VarDesc('h','perpendicular height')], [['A', A, 'cm²'], ['a', a, 'cm'], ['h', h, 'cm']], 'find b in cm.', calc && !a17IsInt(b) ? 'Give your answer to 2 decimal places.' : '')
+      : a17Prompt('A=1/2*(a+b)*h', [a17VarDesc('a','one parallel side'), a17VarDesc('b','the other parallel side'), a17VarDesc('h','perpendicular height')], [['A', A, 'cm²'], ['a', a, 'cm'], ['b', b, 'cm']], 'find h in cm.', calc && !a17IsInt(h) ? 'Give your answer to 2 decimal places.' : '');
+    const expected = ask === 'b' ? b : h;
+    const partials = ask === 'b'
+      ? [{value:2*A, marks:1, message:'Undo the one half first, then divide by h.'},{value:2*A/h, marks:Math.min(2, marks-1), message:'Now subtract a to find b.'}]
+      : [{value:2*A, marks:1, message:'Undo the one half first.'},{value:2*A/(a+b), marks:Math.min(2, marks-1), message:'Correct method. Check the arithmetic.'}];
+    return a17NumberPart(prompt, expected, marks, 'cm', calc && !a17IsInt(expected), partials, 'Check the rearrangement of the trapezium area formula.');
+  }
+
+  function a17PrismPart(rng, calc, marks){
+    const A = calc ? a17PickDec(rng, 5, 12) : rng.int(5, 12);
+    const h = calc ? a17PickDec(rng, 2, 8) : rng.int(2, 8);
+    const V = A*h;
+    const ask = rng.choice(['V','A','h']);
+    if(ask === 'V'){
+      return a17NumberPart(a17Prompt('V=A*h', [a17VarDesc('A','area of the cross-section'), a17VarDesc('h','length of the prism')], [['A', A, 'cm²'], ['h', h, 'cm']], 'find V in cm³.', calc && !a17IsInt(V) ? 'Give your answer to 2 decimal places.' : ''), V, marks, 'cm³', calc && !a17IsInt(V), [], 'Check the prism volume formula.');
+    }
+    const prompt = ask === 'A'
+      ? a17Prompt('V=A*h', [a17VarDesc('A','area of the cross-section'), a17VarDesc('h','length of the prism')], [['V', V, 'cm³'], ['h', h, 'cm']], 'find A in cm².', calc && !a17IsInt(A) ? 'Give your answer to 2 decimal places.' : '')
+      : a17Prompt('V=A*h', [a17VarDesc('A','area of the cross-section'), a17VarDesc('h','length of the prism')], [['V', V, 'cm³'], ['A', A, 'cm²']], 'find h in cm.', calc && !a17IsInt(h) ? 'Give your answer to 2 decimal places.' : '');
+    const expected = ask === 'A' ? A : h;
+    const divisor = ask === 'A' ? h : A;
+    return a17NumberPart(prompt, expected, marks, ask === 'A' ? 'cm²' : 'cm', calc && !a17IsInt(expected), [{value:V*divisor, marks:1, message:'You multiplied instead of dividing.'}], 'Check the prism volume rearrangement.');
+  }
+
+  function a17CuboidPart(rng, calc, marks){
+    const L = calc ? a17PickDec(rng, 4, 8) : rng.int(4, 8);
+    const w = calc ? a17PickDec(rng, 3, 7) : rng.int(3, 7);
+    const h = calc ? a17PickDec(rng, 3, 9) : rng.int(3, 9);
+    const V = L*w*h;
+    const ask = rng.choice(['V','h']);
+    if(ask === 'V'){
+      return a17NumberPart(a17Prompt('V=L*w*h', [], [['L', L, 'cm'], ['w', w, 'cm'], ['h', h, 'cm']], 'find V in cm³.', calc && !a17IsInt(V) ? 'Give your answer to 2 decimal places.' : ''), V, marks, 'cm³', calc && !a17IsInt(V), [], 'Check the cuboid volume formula.');
+    }
+    return a17NumberPart(a17Prompt('V=L*w*h', [], [['V', V, 'cm³'], ['L', L, 'cm'], ['w', w, 'cm']], 'find h in cm.', calc && !a17IsInt(h) ? 'Give your answer to 2 decimal places.' : ''), h, marks, 'cm', calc && !a17IsInt(h), [{value:V/L, marks:1, message:'Now divide by w as well to find h.'}], 'Check the cuboid volume rearrangement.');
+  }
+
+  function a17CircumferencePiPart(rng, calc, marks){
+    const rVal = calc ? a17PickDec(rng, 2, 9) : rng.int(2, 12);
+    if(calc){
+      const C = 2*Math.PI*rVal;
+      return a17NumberPart(a17Prompt('C=2*pi*r', [a17VarDesc('r','radius')], [['r', rVal, 'cm']], 'find C in cm.', 'Give your answer to 2 decimal places.'), C, marks, 'cm', true, [{value:Math.PI*rVal, marks:1, message:'You found πr. Remember the factor of 2.'}], 'Check the circumference formula.');
+    }
+    return a17PiPart(a17Prompt('C=2*pi*r', [a17VarDesc('r','radius')], [['r', rVal, 'cm']], 'find C in cm. Give your answer in terms of π.', ''), 2*rVal, marks, 'cm', [{value:rVal, marks:0, message:'You used r instead of 2r.'}]);
+  }
+
+  function a17CircleAreaPart(rng, calc, marks){
+    const rVal = calc ? a17PickDec(rng, 2, 9) : rng.int(2, 10);
+    if(calc){
+      const A = Math.PI*rVal*rVal;
+      return a17NumberPart(a17Prompt('A=pi*r^2', [a17VarDesc('r','radius')], [['r', rVal, 'cm']], 'find A in cm².', 'Give your answer to 2 decimal places.'), A, marks, 'cm²', true, [{value:rVal*rVal, marks:1, message:'Now multiply by π.'}], 'Check the circle area formula.');
+    }
+    return a17PiPart(a17Prompt('A=pi*r^2', [a17VarDesc('r','radius')], [['r', rVal, 'cm']], 'find A in cm². Give your answer in terms of π.', ''), rVal*rVal, marks, 'cm²', []);
+  }
+
+  function a17OneMarkPart(rng, calc){
+    return rng.choice([
+      () => a17ForcePart(rng, calc, 1),
+      () => a17SquarePart(rng, calc, 1),
+      () => a17CubePart(rng, calc, 1),
+      () => a17RectanglePart(rng, calc, 1),
+      () => a17SpeedPart(rng, calc, 1),
+      () => a17DensityPart(rng, calc, 1),
+      () => a17PressurePart(rng, calc, 1),
+      () => a17CircumferencePiPart(rng, calc, 1)
+    ])();
+  }
+  function a17TwoMarkPart(rng, calc){
+    return rng.choice([
+      () => a17SquarePart(rng, calc, 2),
+      () => a17CubePart(rng, calc, 2),
+      () => a17SpeedPart(rng, calc, 2),
+      () => a17DensityPart(rng, calc, 2),
+      () => a17PressurePart(rng, calc, 2),
+      () => a17CircumferencePiPart(rng, calc, 2),
+      () => a17CircleAreaPart(rng, calc, 2)
+    ])();
+  }
+  function a17ThreeMarkPart(rng, calc){
+    return rng.choice([
+      () => a17RectanglePart(rng, calc, 3),
+      () => a17TrianglePart(rng, calc, 3),
+      () => a17TrapeziumPart(rng, calc, 3),
+      () => a17PrismPart(rng, calc, 3),
+      () => a17CuboidPart(rng, calc, 3),
+      () => a17SpeedPart(rng, calc, 3),
+      () => a17DensityPart(rng, calc, 3),
+      () => a17PressurePart(rng, calc, 3)
+    ])();
+  }
+
+  buildA17Question = function(marksTotal, paperMode, rng){
+    const calc = paperMode === 'calc';
+    if(marksTotal === 1) return makeQuestion('A17', '1M', paperMode, [a17OneMarkPart(rng, calc)]);
+    if(marksTotal === 2) return makeQuestion('A17', '2M', paperMode, [a17TwoMarkPart(rng, calc)]);
+    if(marksTotal === 3) return makeQuestion('A17', '3M', paperMode, [a17OneMarkPart(rng, calc), a17TwoMarkPart(rng, calc)]);
+    if(marksTotal === 4) return makeQuestion('A17', '4M', paperMode, [a17OneMarkPart(rng, calc), a17ThreeMarkPart(rng, calc)]);
+    return makeQuestion('A17', '5M', paperMode, [a17TwoMarkPart(rng, calc), a17ThreeMarkPart(rng, calc)]);
+  };
+
+  // --- A18 randomised generators ---
+  const A18_FAMILIES = [
+    ['x','y','z'],
+    ['p','q','r'],
+    ['n','k','m'],
+    ['a','b','c'],
+    ['A','B','P']
+  ];
+  const A18_NUMS = [1,2,3,4,5,6,7,8,9,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5];
+  function a18Num(rng, positiveOnly){
+    let v = rng.choice(A18_NUMS);
+    if(!positiveOnly && rng.float() < 0.45) v = -v;
+    return Number(fmt(v));
+  }
+  function a18Pos(rng, minVal){
+    const pool = A18_NUMS.filter(v => v >= (minVal || 1));
+    return Number(fmt(rng.choice(pool.length ? pool : A18_NUMS)));
+  }
+  function a18S(n){ return Number(n) >= 0 ? `+${fmt(n)}` : fmt(n); }
+  function a18Family(rng){ return rng.choice(A18_FAMILIES).slice(); }
+  function a18PickNames(rng){
+    const fam = a18Family(rng);
+    return {u:fam[0], v:fam[1] || 'y', w:fam[2] || 'z'};
+  }
+  function a18Linear1(rng){
+    const n = a18PickNames(rng), c = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${n.u}${a18S(c)}`, `${n.v}${a18S(-c)}`, 1);
+  }
+  function a18Mult1(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2);
+    return partA18(n.u, `${n.v}=${fmt(a)}*${n.u}`, `${n.v}/${fmt(a)}`, 1);
+  }
+  function a18Product1(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.w}=${n.u}*${n.v}`, `${n.w}/${n.v}`, 1);
+  }
+  function a18Square1(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.v}=${n.u}^2`, `sqrt(${n.v})`, 1, {extra:'where the subject is positive'});
+  }
+  function a18Cube1(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.v}=${n.u}^3`, `cbrt(${n.v})`, 1);
+  }
+  function a18Sqrt1(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.v}=sqrt(${n.u})`, `${n.v}^2`, 1);
+  }
+  function a18Cbrt1(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.v}=cbrt(${n.u})`, `${n.v}^3`, 1);
+  }
+  function a18Linear2(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*${n.u}${a18S(b)}`, `(${n.v}${a18S(-b)})/${fmt(a)}`, 2, {
+      partials:[
+        {expr:`${n.v}${a18S(-b)}`, marks:1, message:`You moved ${fmt(Math.abs(b))}; now divide by ${fmt(a)}.`},
+        {expr:`${n.v}/${fmt(a)}${a18S(-b)}`, marks:1, message:`Divide the whole of ${n.v} ${b>=0?'−':'+'} ${fmt(Math.abs(b))} by ${fmt(a)}.`}
+      ]
+    });
+  }
+  function a18DivShift2(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${n.u}/${fmt(a)}${a18S(b)}`, `${fmt(a)}*(${n.v}${a18S(-b)})`, 2, {
+      partials:[
+        {expr:`${n.v}${a18S(-b)}`, marks:1, message:`You moved ${fmt(Math.abs(b))}; now multiply by ${fmt(a)}.`},
+        {expr:`${fmt(a)}*${n.v}${a18S(-b)}`, marks:1, message:`Multiply the whole bracket by ${fmt(a)}.`}
+      ]
+    });
+  }
+  function a18HalfArea2(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.w}=1/2*${n.u}*${n.v}`, `2*${n.w}/${n.v}`, 2, {
+      partials:[{expr:`${n.w}/${n.v}`, marks:1, message:'Undo the one half by multiplying by 2.'}]
+    });
+  }
+  function a18Square2(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.u, `${n.v}=${n.u}^2`, `±sqrt(${n.v})`, 2, {extra:'Give both possible values of the subject', pm:true, pmBase:`sqrt(${n.v})`, partials:[{expr:`sqrt(${n.v})`, marks:1, message:'Include both possible signs.'}]});
+  }
+  function a18ScaledSquare2(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2);
+    return partA18(n.u, `${n.v}=${fmt(a)}*${n.u}^2`, `sqrt(${n.v}/${fmt(a)})`, 2, {extra:'where the subject is positive', partials:[{expr:`${n.v}/${fmt(a)}`, marks:1, message:`You divided by ${fmt(a)}; now take the square root.`}]});
+  }
+  function a18ShiftSqrt2(rng){
+    const n = a18PickNames(rng), b = a18Pos(rng, 1);
+    return partA18(n.u, `${n.v}=sqrt(${n.u})+${fmt(b)}`, `(${n.v}-${fmt(b)})^2`, 2, {partials:[{expr:`${n.v}-${fmt(b)}`, marks:1, message:'You isolated the square root; now square both sides.'}]});
+  }
+  function a18ScaledCbrt2(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2);
+    return partA18(n.u, `${n.v}=${fmt(a)}*cbrt(${n.u})`, `(${n.v}/${fmt(a)})^3`, 2, {partials:[{expr:`${n.v}/${fmt(a)}`, marks:1, message:'You divided correctly; now cube both sides.'}]});
+  }
+  function a18Bracket3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Pos(rng, 1), c = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*(${n.u}-${fmt(b)})${a18S(c)}`, `(${n.v}${a18S(-c)})/${fmt(a)}+${fmt(b)}`, 3, {
+      partials:[
+        {expr:`${n.v}${a18S(-c)}`, marks:1, message:`Undo the ${c>=0?'+':'−'}${fmt(Math.abs(c))} first.`},
+        {expr:`(${n.v}${a18S(-c)})/${fmt(a)}`, marks:2, message:`Now add ${fmt(b)} to finish.`}
+      ]
+    });
+  }
+  function a18Trapezium3(rng){
+    const n = a18PickNames(rng);
+    return partA18(n.v, `${n.w}=1/2*(${n.u}+${n.v})*${n.u}`, `2*${n.w}/${n.u}-${n.u}`, 3, {
+      partials:[
+        {expr:`2*${n.w}`, marks:1, message:'Undo the one half first, then divide by the outside term.'},
+        {expr:`2*${n.w}/${n.u}`, marks:2, message:`Now subtract ${n.u} to make ${n.v} the subject.`}
+      ]
+    });
+  }
+  function a18MixedFrac3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Pos(rng, 1), c = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=(${n.u}-${fmt(a)}*${n.w})/${fmt(b)}${a18S(c)}`, `${fmt(b)}*(${n.v}${a18S(-c)})+${fmt(a)}*${n.w}`, 3);
+  }
+  function a18ShiftSquare3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*${n.u}^2${a18S(b)}`, `sqrt((${n.v}${a18S(-b)})/${fmt(a)})`, 3, {extra:'where the subject is positive'});
+  }
+  function a18ScaledSqrt3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*sqrt(${n.u})${a18S(b)}`, `((${n.v}${a18S(-b)})/${fmt(a)})^2`, 3, {
+      partials:[{expr:`(${n.v}${a18S(-b)})/${fmt(a)}`, marks:2, message:'You isolated the square root correctly; now square both sides.'}]
+    });
+  }
+  function a18ShiftCube3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*${n.u}^3${a18S(b)}`, `cbrt((${n.v}${a18S(-b)})/${fmt(a)})`, 3);
+  }
+  function a18ScaledCbrt3(rng){
+    const n = a18PickNames(rng), a = a18Pos(rng, 2), b = a18Num(rng, false);
+    return partA18(n.u, `${n.v}=${fmt(a)}*cbrt(${n.u})${a18S(b)}`, `((${n.v}${a18S(-b)})/${fmt(a)})^3`, 3);
+  }
+  function a18OneMark(rng){ return rng.choice([() => a18Linear1(rng), () => a18Mult1(rng), () => a18Product1(rng), () => a18Square1(rng), () => a18Cube1(rng), () => a18Sqrt1(rng), () => a18Cbrt1(rng)])(); }
+  function a18TwoMark(rng){ return rng.choice([() => a18Linear2(rng), () => a18DivShift2(rng), () => a18HalfArea2(rng), () => a18Square2(rng), () => a18ScaledSquare2(rng), () => a18ShiftSqrt2(rng), () => a18ScaledCbrt2(rng)])(); }
+  function a18ThreeMark(rng){ return rng.choice([() => a18Bracket3(rng), () => a18Trapezium3(rng), () => a18MixedFrac3(rng), () => a18ShiftSquare3(rng), () => a18ScaledSqrt3(rng), () => a18ShiftCube3(rng), () => a18ScaledCbrt3(rng)])(); }
+
+  buildA18Question = function(marksTotal, paperMode, rng){
+    if(marksTotal === 1) return makeQuestion('A18', '1M', paperMode, [a18OneMark(rng)]);
+    if(marksTotal === 2) return makeQuestion('A18', '2M', paperMode, [a18TwoMark(rng)]);
+    if(marksTotal === 3) return makeQuestion('A18', '3M', paperMode, [a18ThreeMark(rng)]);
+    if(marksTotal === 4){
+      return rng.float() < 0.5
+        ? makeQuestion('A18', '4M', paperMode, [a18OneMark(rng), a18ThreeMark(rng)])
+        : makeQuestion('A18', '4M', paperMode, [a18TwoMark(rng), a18TwoMark(rng)]);
+    }
+    return rng.float() < 0.5
+      ? makeQuestion('A18', '5M', paperMode, [a18TwoMark(rng), a18ThreeMark(rng)])
+      : makeQuestion('A18', '5M', paperMode, [a18OneMark(rng), a18TwoMark(rng), a18TwoMark(rng)]);
+  };
+})();
+
+</script>
+</body>
+</html>
